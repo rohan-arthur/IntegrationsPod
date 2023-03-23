@@ -32,7 +32,7 @@ export default {
 			}
 			);
 		}
-		
+		storeValue('stats',stats);
 		return stats;
 	},
 	getCycleTimes: async () => {
