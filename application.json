@@ -1,0 +1,25 @@
+{
+  "pages": [
+    {
+      "id": "Page2",
+      "isDefault": true
+    },
+    {
+      "id": "Page1",
+      "isDefault": false
+    }
+  ],
+  "viewMode": false,
+  "appIsExample": false,
+  "unreadCommentThreads": 0,
+  "clonedFromApplicationId": "6405e2ae47e5fd1a6c75394a",
+  "color": "#C2DAF0",
+  "icon": "money",
+  "unpublishedCustomJSLibs": [],
+  "publishedCustomJSLibs": [],
+  "evaluationVersion": 2,
+  "applicationVersion": 2,
+  "collapseInvisibleWidgets": true,
+  "isManualUpdate": false,
+  "deleted": false
+}
