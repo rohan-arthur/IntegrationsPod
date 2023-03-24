@@ -6,10 +6,8 @@ export default {
 	},
 	getStats: async () => {
 		let estimate = List1.triggeredItem.estimate;
-		console.log(estimate);
 		var cycleTimesData = await GetCycle_onSelection.run({estimate: estimate});
 		var data = await this.getCycleTimes();
-		console.log(data);
 		storeValue('statsForEstimate',data);
 	},
 	getCycleTimes: async () => {
