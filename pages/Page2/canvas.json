@@ -3028,13 +3028,14 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Page2_CycleTimeUtils.getCycleTimes",
-              "name": "CycleTimeUtils.getCycleTimes",
+              "id": "Page2_CycleTimeUtils.getStats",
+              "name": "CycleTimeUtils.getStats",
               "collectionId": "Page2_CycleTimeUtils",
+              "clientSideExecution": true,
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  console.log(\"new object \" + new Date(\"2023-02-01T00:00:00Z\"));\n  console.log(\"selected date \" + StartDate.selectedDate);\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(\"2023-02-01T00:00:00Z\")) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
+                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    console.log(data);\n    var cycleTimes = data.map(item => item.cycleTime);\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev\n    });\n  }\n  storeValue('stats', stats);\n  return stats;\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -3053,26 +3054,25 @@
           ],
           [
             {
-              "id": "Page2_GetCycleTimes",
-              "name": "GetCycleTimes",
+              "id": "Page2_CycleTimeUtils.getCycleTimes",
+              "name": "CycleTimeUtils.getCycleTimes",
+              "collectionId": "Page2_CycleTimeUtils",
               "confirmBeforeExecute": false,
-              "pluginType": "API",
+              "pluginType": "JS",
               "jsonPathKeys": [
-                "this.params.estimate"
+                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  console.log(\"new object \" + new Date(\"2023-02-01T00:00:00Z\"));\n  console.log(\"selected date \" + StartDate.selectedDate);\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(\"2023-02-01T00:00:00Z\")) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
               ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
             {
-              "id": "Page2_CycleTimeUtils.getStats",
-              "name": "CycleTimeUtils.getStats",
-              "collectionId": "Page2_CycleTimeUtils",
-              "clientSideExecution": true,
+              "id": "Page2_GetCycleTimes",
+              "name": "GetCycleTimes",
               "confirmBeforeExecute": false,
-              "pluginType": "JS",
+              "pluginType": "API",
               "jsonPathKeys": [
-                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    const sum = data.reduce((acc, item) => acc + item.cycleTime, 0);\n    const mean = sum / data.length;\n    const sortedData = data.map(item => item.cycleTime).sort();\n    const middle = Math.floor(sortedData.length / 2);\n    const median = sortedData.length % 2 === 0 ? (sortedData[middle - 1] + sortedData[middle]) / 2 : sortedData[middle];\n    const squaredDiffs = data.map(item => Math.pow(item.cycleTime - mean, 2));\n    const variance = squaredDiffs.reduce((acc, item) => acc + item, 0) / data.length;\n    const stdDev = Math.sqrt(variance);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": mean,\n      \"median\": median,\n      \"stdDev\": stdDev\n    });\n  }\n  storeValue('stats', stats);\n  return stats;\n}"
+                "this.params.estimate"
               ],
               "timeoutInMillisecond": 10000
             }
