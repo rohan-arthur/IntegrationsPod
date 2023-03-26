@@ -16,7 +16,9 @@ export default {
 				"sampleSize":data.length,
 				"mean":calculations.mean,
 				"median":calculations.median,
-				"stdDev":calculations.stdDev
+				"stdDev":calculations.stdDev,
+				"minimum":calculations.minimum,
+				"maximum":calculations.maximum
 			}
 								);
 		}
@@ -35,8 +37,11 @@ export default {
   // calculate standard deviation
   const variance = numbers.reduce((acc, cur) => acc + Math.pow(cur - mean, 2), 0) / numbers.length;
   const standardDeviation = Math.sqrt(variance);
+		
+	const minimum = Math.min(...numbers);
+	const maximum = Math.max(...numbers);
 
-  return { "mean": mean, "median": median, "stdDev": standardDeviation };
+  return { "mean": mean, "median": median, "stdDev": standardDeviation, "minimum":minimum, "maximum":maximum };
 	},
 	getCycleTimes: async () => {
 		let cycleTimes = [];

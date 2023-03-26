@@ -846,7 +846,7 @@
                                       "text": "Mean: {{currentItem.mean.toPrecision(3)}}",
                                       "key": "7viwzwo6de",
                                       "isDeprecated": false,
-                                      "rightColumn": 54,
+                                      "rightColumn": 40,
                                       "textAlign": "LEFT",
                                       "dynamicHeight": "FIXED",
                                       "widgetId": "lyw4pou62f",
@@ -1079,6 +1079,63 @@
                                       "textAlign": "LEFT",
                                       "dynamicHeight": "FIXED",
                                       "widgetId": "lykviuhuo7",
+                                      "minWidth": 450,
+                                      "isVisible": true,
+                                      "fontStyle": "BOLD",
+                                      "textColor": "#231F20",
+                                      "version": 1,
+                                      "parentId": "63fvxlhpod",
+                                      "renderMode": "CANVAS",
+                                      "isLoading": false,
+                                      "responsiveBehavior": "fill",
+                                      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                                      "maxDynamicHeight": 9000,
+                                      "fontSize": "1rem",
+                                      "minDynamicHeight": 4
+                                    },
+                                    {
+                                      "widgetName": "Text23",
+                                      "displayName": "Text",
+                                      "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+                                      "searchTags": [
+                                        "typography",
+                                        "paragraph",
+                                        "label"
+                                      ],
+                                      "topRow": 0,
+                                      "bottomRow": 4,
+                                      "parentRowSpace": 10,
+                                      "type": "TEXT_WIDGET",
+                                      "hideCard": false,
+                                      "animateLoading": true,
+                                      "overflow": "NONE",
+                                      "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+                                      "parentColumnSpace": 10.5426025390625,
+                                      "dynamicTriggerPathList": [],
+                                      "leftColumn": 44,
+                                      "dynamicBindingPathList": [
+                                        {
+                                          "key": "truncateButtonColor"
+                                        },
+                                        {
+                                          "key": "fontFamily"
+                                        },
+                                        {
+                                          "key": "borderRadius"
+                                        },
+                                        {
+                                          "key": "text"
+                                        }
+                                      ],
+                                      "shouldTruncate": false,
+                                      "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                                      "text": "Range: {{currentItem.minimum}} - {{currentItem.maximum}}",
+                                      "key": "ajkhzl2cpf",
+                                      "isDeprecated": false,
+                                      "rightColumn": 60,
+                                      "textAlign": "LEFT",
+                                      "dynamicHeight": "FIXED",
+                                      "widgetId": "y6xn7xdk1x",
                                       "minWidth": 450,
                                       "isVisible": true,
                                       "fontStyle": "BOLD",
@@ -3048,14 +3105,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Page2_CycleTimeUtils.getStats",
-              "name": "CycleTimeUtils.getStats",
+              "id": "Page2_CycleTimeUtils.getCycleTimes",
+              "name": "CycleTimeUtils.getCycleTimes",
               "collectionId": "Page2_CycleTimeUtils",
-              "clientSideExecution": true,
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    var cycleTimes = data.map(item => item.cycleTime);\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev\n    });\n  }\n  storeValue('stats', stats);\n  return stats;\n}"
+                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  console.log(\"new object \" + new Date(\"2023-02-01T00:00:00Z\"));\n  console.log(\"selected date \" + new Date(StartDate.selectedDate));\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -3074,25 +3130,26 @@
           ],
           [
             {
-              "id": "Page2_CycleTimeUtils.getCycleTimes",
-              "name": "CycleTimeUtils.getCycleTimes",
-              "collectionId": "Page2_CycleTimeUtils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  console.log(\"new object \" + new Date(\"2023-02-01T00:00:00Z\"));\n  console.log(\"selected date \" + new Date(StartDate.selectedDate));\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
               "id": "Page2_GetCycleTimes",
               "name": "GetCycleTimes",
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
                 "this.params.estimate"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Page2_CycleTimeUtils.getStats",
+              "name": "CycleTimeUtils.getStats",
+              "collectionId": "Page2_CycleTimeUtils",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    var cycleTimes = data.map(item => item.cycleTime);\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev,\n      \"minimum\": calculations.minimum,\n      \"maximum\": calculations.maximum\n    });\n  }\n  storeValue('stats', stats);\n  return stats;\n}"
               ],
               "timeoutInMillisecond": 10000
             }
