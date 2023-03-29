@@ -1,7 +1,7 @@
 {
   "unpublishedCollection": {
-    "name": "ForecastingUtils",
-    "pageId": "Page2",
+    "name": "JSObject1",
+    "pageId": "Page3",
     "pluginId": "js-plugin",
     "pluginType": "JS",
     "actions": [],
@@ -14,15 +14,11 @@
       {
         "name": "myVar2",
         "value": "{}"
-      },
-      {
-        "name": "estimates",
-        "value": "[0.5, 1, 2, 3, 5, 8]"
       }
     ],
     "userPermissions": []
   },
-  "id": "Page2_ForecastingUtils",
+  "id": "Page3_JSObject1",
   "deleted": false,
-  "gitSyncId": "64100de2d67ea94e3d96ff5d_6411ad78c182ff53e439cf95"
+  "gitSyncId": "641fa0a82fc69f7a3834534b_64240a45950aeb3af757fe7a"
 }

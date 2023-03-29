@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getForecasts",
-    "fullyQualifiedName": "ForecastingUtils.getForecasts",
+    "name": "getMedian",
+    "fullyQualifiedName": "MCSimulationUtils.getMedian",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Page2",
-    "collectionId": "Page2_ForecastingUtils",
+    "collectionId": "Page2_MCSimulationUtils",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -37,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page2_ForecastingUtils.getForecasts",
+  "id": "Page2_MCSimulationUtils.getMedian",
   "deleted": false,
-  "gitSyncId": "641fa0a82fc69f7a3834534b_641fb7776a510a2b2c1e3e40"
+  "gitSyncId": "641fa0a82fc69f7a3834534b_64239d0e950aeb3af757f1b5"
 }

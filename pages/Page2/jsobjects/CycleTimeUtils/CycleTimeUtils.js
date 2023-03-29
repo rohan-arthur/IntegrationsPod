@@ -5,10 +5,14 @@ export default {
 	getStats: async () => {
 		let estimates = [0.5, 1, 2, 3, 5, 8];
 		var stats = [];
+		var globalCycleTimes = [];
 		for(var i=0; i<estimates.length; i++){
 			var cycleTimesData = await GetCycleTimes.run({estimate: estimates[i]});
 			var data = await this.getCycleTimes();
 			var cycleTimes = data.map(item => item.cycleTime);
+			
+			globalCycleTimes.push({"estimate":estimates[i],"durations":cycleTimes});
+			
 			var calculations = await this.doCalculations(cycleTimes);
 			
 			stats.push({
@@ -22,8 +26,11 @@ export default {
 			}
 								);
 		}
-		storeValue('stats',stats);
-		return stats;
+
+		await storeValue('globalCycleTimes',globalCycleTimes);
+		await storeValue('stats',stats);
+		//return stats;
+		return globalCycleTimes;
 	},
 	doCalculations: async (numbers) => {
   // calculate mean
@@ -46,8 +53,6 @@ export default {
 	getCycleTimes: async () => {
 		let cycleTimes = [];
 		var data = GetCycleTimes.data.data.searchClosedIssues.nodes;
-		console.log("new object "+ new Date("2023-02-01T00:00:00Z"));
-		console.log("selected date "+ new Date(StartDate.selectedDate));
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;
 			for(var j=0; j<timelineItems.length; j++){

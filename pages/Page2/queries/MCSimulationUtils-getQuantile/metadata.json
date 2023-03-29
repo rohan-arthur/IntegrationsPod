@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getForecasts",
-    "fullyQualifiedName": "ForecastingUtils.getForecasts",
+    "name": "getQuantile",
+    "fullyQualifiedName": "MCSimulationUtils.getQuantile",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,13 +14,16 @@
       "userPermissions": []
     },
     "pageId": "Page2",
-    "collectionId": "Page2_ForecastingUtils",
+    "collectionId": "Page2_MCSimulationUtils",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [],
+      "jsArguments": [
+        {},
+        {}
+      ],
       "isAsync": false
     },
     "executeOnLoad": false,
@@ -37,7 +40,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page2_ForecastingUtils.getForecasts",
+  "id": "Page2_MCSimulationUtils.getQuantile",
   "deleted": false,
-  "gitSyncId": "641fa0a82fc69f7a3834534b_641fb7776a510a2b2c1e3e40"
+  "gitSyncId": "641fa0a82fc69f7a3834534b_6422d16397061e691afcee82"
 }
