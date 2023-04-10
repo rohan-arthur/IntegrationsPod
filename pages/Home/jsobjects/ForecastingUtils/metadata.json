@@ -1,0 +1,28 @@
+{
+  "unpublishedCollection": {
+    "name": "ForecastingUtils",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      },
+      {
+        "name": "estimates",
+        "value": "[0.5, 1, 2, 3, 5, 8]"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Home_ForecastingUtils",
+  "deleted": false,
+  "gitSyncId": "64100de2d67ea94e3d96ff5d_6411ad78c182ff53e439cf95"
+}

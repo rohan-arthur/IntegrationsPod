@@ -1,0 +1,24 @@
+{
+  "unpublishedCollection": {
+    "name": "CycleTimeUtils",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Home_CycleTimeUtils",
+  "deleted": false,
+  "gitSyncId": "64100de2d67ea94e3d96ff5d_6410517a8d2ca137add06808"
+}
