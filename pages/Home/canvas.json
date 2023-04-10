@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1160,
+          "bottomRow": 1120,
           "containerStyle": "none",
           "snapRows": 109,
           "parentRowSpace": 1,
@@ -33,7 +33,7 @@
               "displayName": "Tabs",
               "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
               "topRow": 5,
-              "bottomRow": 116,
+              "bottomRow": 112,
               "parentRowSpace": 10,
               "type": "TABS_WIDGET",
               "hideCard": false,
@@ -58,7 +58,7 @@
                   "tabId": "tab1",
                   "widgetName": "Canvas1",
                   "displayName": "Canvas",
-                  "bottomRow": 1070,
+                  "bottomRow": 1050,
                   "topRow": 0,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
@@ -469,7 +469,7 @@
                   "widgetName": "Canvas3",
                   "displayName": "Canvas",
                   "topRow": 1,
-                  "bottomRow": 1070,
+                  "bottomRow": 1060,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": false,
@@ -673,7 +673,7 @@
                   "widgetName": "Canvas4",
                   "displayName": "Canvas",
                   "topRow": 1,
-                  "bottomRow": 1070,
+                  "bottomRow": 1030,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": false,
@@ -1381,7 +1381,7 @@
                           "alias": "closedAt",
                           "horizontalAlignment": "LEFT",
                           "verticalAlignment": "CENTER",
-                          "columnType": "text",
+                          "columnType": "date",
                           "textColor": "",
                           "textSize": "0.875rem",
                           "fontStyle": "",
@@ -1399,7 +1399,8 @@
                           "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"closedAt\"]))}}",
                           "sticky": "",
                           "validation": {},
-                          "cellBackground": ""
+                          "cellBackground": "",
+                          "outputFormat": "Do MMM YYYY"
                         },
                         "startedAt": {
                           "allowCellWrapping": false,
@@ -1410,7 +1411,7 @@
                           "alias": "startedAt",
                           "horizontalAlignment": "LEFT",
                           "verticalAlignment": "CENTER",
-                          "columnType": "text",
+                          "columnType": "date",
                           "textColor": "",
                           "textSize": "0.875rem",
                           "fontStyle": "",
@@ -1428,7 +1429,8 @@
                           "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"startedAt\"]))}}",
                           "sticky": "",
                           "validation": {},
-                          "cellBackground": ""
+                          "cellBackground": "",
+                          "outputFormat": "Do MMM YYYY"
                         },
                         "cycleTime": {
                           "allowCellWrapping": false,
@@ -3646,14 +3648,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Home_CycleTimeUtils.getStats",
-              "name": "CycleTimeUtils.getStats",
+              "id": "Home_CycleTimeUtils.getCycleTimes",
+              "name": "CycleTimeUtils.getCycleTimes",
               "collectionId": "Home_CycleTimeUtils",
-              "clientSideExecution": true,
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  var globalCycleTimes = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    var cycleTimes = data.map(item => item.cycleTime);\n    globalCycleTimes.push({\n      \"estimate\": estimates[i],\n      \"durations\": cycleTimes\n    });\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev,\n      \"minimum\": calculations.minimum,\n      \"maximum\": calculations.maximum\n    });\n  }\n  await storeValue('globalCycleTimes', globalCycleTimes);\n  await storeValue('stats', stats);\n  return globalCycleTimes;\n}"
+                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -3672,25 +3673,26 @@
           ],
           [
             {
-              "id": "Home_CycleTimeUtils.getCycleTimes",
-              "name": "CycleTimeUtils.getCycleTimes",
-              "collectionId": "Home_CycleTimeUtils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  let cycleTimes = [];\n  var data = GetCycleTimes.data.data.searchClosedIssues.nodes;\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiff(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  return cycleTimes;\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
               "id": "Home_GetCycleTimes",
               "name": "GetCycleTimes",
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
                 "this.params.estimate"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Home_CycleTimeUtils.getStats",
+              "name": "CycleTimeUtils.getStats",
+              "collectionId": "Home_CycleTimeUtils",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  let estimates = [0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  var globalCycleTimes = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var cycleTimesData = await GetCycleTimes.run({\n      estimate: estimates[i]\n    });\n    var data = await CycleTimeUtils.getCycleTimes();\n    var cycleTimes = data.map(item => item.cycleTime);\n    globalCycleTimes.push({\n      \"estimate\": estimates[i],\n      \"durations\": cycleTimes\n    });\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev,\n      \"minimum\": calculations.minimum,\n      \"maximum\": calculations.maximum\n    });\n  }\n  await storeValue('globalCycleTimes', globalCycleTimes);\n  await storeValue('stats', stats);\n  return globalCycleTimes;\n}"
               ],
               "timeoutInMillisecond": 10000
             }
