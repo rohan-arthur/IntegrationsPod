@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "myFun1",
-    "fullyQualifiedName": "JSObject1.myFun1",
+    "name": "getDurations",
+    "fullyQualifiedName": "JSObject1.getDurations",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -21,10 +21,9 @@
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": false
+      "isAsync": true
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -38,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page3_JSObject1.myFun1",
+  "id": "Page3_JSObject1.getDurations",
   "deleted": false,
-  "gitSyncId": "641fa0a82fc69f7a3834534b_64240a45950aeb3af757fe75"
+  "gitSyncId": "641fa0a82fc69f7a3834534b_64240b0b3052f51c375e529c"
 }

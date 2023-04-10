@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "myFun2",
-    "fullyQualifiedName": "JSObject1.myFun2",
+    "name": "getTransitions",
+    "fullyQualifiedName": "JSObject1.getTransitions",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -24,7 +24,6 @@
       "isAsync": true
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -38,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page3_JSObject1.myFun2",
+  "id": "Page3_JSObject1.getTransitions",
   "deleted": false,
-  "gitSyncId": "641fa0a82fc69f7a3834534b_64240a45950aeb3af757fe76"
+  "gitSyncId": "641fa0a82fc69f7a3834534b_642414393052f51c375e53d1"
 }

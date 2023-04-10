@@ -7,7 +7,7 @@ query closedIssues{
     }
       estimates:{
         values: {
-          in: [1]
+          in: [{{this.params.estimate}}]
         }
       }
   }
