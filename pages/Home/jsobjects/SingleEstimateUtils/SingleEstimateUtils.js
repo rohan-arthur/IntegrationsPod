@@ -29,7 +29,16 @@ export default {
 				}
 			}
 		}
-		return cycleTimes;
+		//start: remove_duplicates
+		//return cycleTimes;
+		const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {
+			if (!acc[curr.number] || acc[curr.number].cycleTime > curr.cycleTime) {
+				acc[curr.number] = curr;
+			}
+			return acc;
+		}, {}));
+		return unduplicatedCycleTimes;
+		//end: remove_duplicates
 	},
 	getDiff: (startDate, endDate) =>{
 		const diffTime = Math.abs(endDate - startDate);
