@@ -164,11 +164,13 @@ export default {
 				}
 			)
 		}
-
-		storeValue("issueBottlenecks",issueBottlenecks);
+		const filteredArr = issueBottlenecks.filter((obj, index, self) =>
+																								index === self.findIndex((o) => o.number === obj.number)
+																							 );
+		storeValue("issueBottlenecks",filteredArr);
 		//const cycleCalculations = this.doCalculations(issueBottlenecks);
 		//storeValue("cycleCalculations",cycleCalculations);
-		return issueBottlenecks;
+		return filteredArr;
 	},
 
 	doCalculations: (data) => {
@@ -302,19 +304,19 @@ export default {
 
 		// Calculate the standard deviation of the inProgressTime field
 		const inProgressSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
-		
+
 		// Calculate the standard deviation of the inProgressTime field
 		const codeReviewSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
-		
+
 		// Calculate the standard deviation of the inProgressTime field
 		const qaQueueSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
-		
+
 		// Calculate the standard deviation of the inProgressTime field
 		const qaTimeSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
-		
+
 		// Calculate the standard deviation of the inProgressTime field
 		const mergeTimeSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
-		
+
 		const result = [
 			{
 				"Queue":"In Progress",
@@ -347,7 +349,7 @@ export default {
 				"StdDev": mergeTimeSD
 			}
 		];
-		
+
 		return result;
 	}
 }
