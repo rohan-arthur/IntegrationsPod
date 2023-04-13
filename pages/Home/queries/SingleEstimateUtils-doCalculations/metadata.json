@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getDiff",
-    "fullyQualifiedName": "SingleEstimateUtils.getDiff",
+    "name": "doCalculations",
+    "fullyQualifiedName": "SingleEstimateUtils.doCalculations",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -21,7 +21,6 @@
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [
-        {},
         {}
       ],
       "isAsync": false
@@ -40,7 +39,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_SingleEstimateUtils.getDiff",
+  "id": "Home_SingleEstimateUtils.doCalculations",
   "deleted": false,
-  "gitSyncId": "64100de2d67ea94e3d96ff5d_641180bec182ff53e439cd7c"
+  "gitSyncId": "64351699e0735231ba672fc1_6437cc1626013158789b19df"
 }

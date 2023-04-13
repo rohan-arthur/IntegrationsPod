@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getDiff",
-    "fullyQualifiedName": "SingleEstimateUtils.getDiff",
+    "name": "myFun1",
+    "fullyQualifiedName": "JSObject1.myFun1",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,19 +14,17 @@
       "userPermissions": []
     },
     "pageId": "Home",
-    "collectionId": "Home_SingleEstimateUtils",
+    "collectionId": "Home_JSObject1",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [
-        {},
-        {}
-      ],
+      "jsArguments": [],
       "isAsync": false
     },
     "executeOnLoad": false,
+    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -40,7 +38,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_SingleEstimateUtils.getDiff",
+  "id": "Home_JSObject1.myFun1",
   "deleted": false,
-  "gitSyncId": "64100de2d67ea94e3d96ff5d_641180bec182ff53e439cd7c"
+  "gitSyncId": "64351699e0735231ba672fc1_6437d2465a787709661d769f"
 }
