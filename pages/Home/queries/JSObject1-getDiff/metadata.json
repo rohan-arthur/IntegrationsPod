@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "myFun1",
-    "fullyQualifiedName": "JSObject1.myFun1",
+    "name": "getDiff",
+    "fullyQualifiedName": "JSObject1.getDiff",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -24,7 +24,6 @@
       "isAsync": false
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -38,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_JSObject1.myFun1",
+  "id": "Home_JSObject1.getDiff",
   "deleted": false,
-  "gitSyncId": "64351699e0735231ba672fc1_6437d2465a787709661d769f"
+  "gitSyncId": "6438efac5a787709661d86f8_643d20d1e0735231ba679979"
 }

@@ -39,8 +39,13 @@ export default {
 			}
 			return acc;
 		}, {}));
+
+		const unduplicatedIssues = Array.from(new Set(issuesForEstimate.map(obj => obj.number)))
+		.map(number => {
+			return issuesForEstimate.find(obj => obj.number === number);
+		});
 		//end: remove_duplicates
-		storeValue("issuesForEstimate",issuesForEstimate);
+		storeValue("issuesForEstimate",unduplicatedIssues);
 		return unduplicatedCycleTimes;
 	},
 
@@ -48,15 +53,19 @@ export default {
 
 
 	getDiff: (startDate, endDate) =>{
-		if(startDate===undefined || endDate===undefined)
-			return undefined;
+		//if(startDate===undefined || endDate===undefined)
+		if(!startDate || !endDate){
+			return null;
+		}
 		else{
 			const diffTime = Math.abs(endDate - startDate);
 			return Math.ceil(diffTime / (1000 * 60 * 60 * 24));			
 		}
 	},
 
-	getInternalCycleTimes: () => {
+
+
+	getInternalCycleTimes: async () => {
 		const data = appsmith.store.issuesForEstimate;
 		let timelines = [];
 
@@ -66,16 +75,18 @@ export default {
 				"closedAt": data[i].closedAt,
 				"transitions":[]
 			});
-			const timelineItems = data[i].timelineItems.nodes.filter(obj => obj.key === "issue.change_pipeline");
+
+			const timelineItemsAcrossWorkspaces = data[i].timelineItems.nodes.filter(obj => obj.key === "issue.change_pipeline");
+			const timelineItems = timelineItemsAcrossWorkspaces.filter(obj => obj.data.workspace.name === "Data Integration Pod" );
 
 			for(let j=0;j< timelineItems.length;j++){
 				//issue first came into in progress column	
-				if(timelineItems[j].data.from_pipeline.name==="Sprint Backlog" && timelineItems[j].data.to_pipeline.name==="In Progress"){
+				if(timelineItems[j].data.to_pipeline.name==="In Progress"){
 					timelines[i].transitions.push(
 						{
 							"from":"Sprint Backlog",
 							"to":"In Progress",
-							"updatedAt":timelineItems[j].updatedAt
+							"updatedAt": timelineItems[j].updatedAt
 						}
 					);
 				}
@@ -125,7 +136,25 @@ export default {
 				}
 			}
 		}
-		const filteredTimelines = timelines.filter((obj) => obj.transitions.some((t) => t.to === "Closed"));
+		const closedTimelines = timelines.filter((obj) => obj.transitions.some((t) => t.to === "Closed"));
+		//const filteredTimelines
+		const filteredTimelines = closedTimelines.reduce((acc, item) => {
+			const transitions = {};
+
+			item.transitions.forEach((transition) => {
+				const key = `${transition.from}-${transition.to}`;
+				const existingTransition = transitions[key];
+
+				if (!existingTransition || existingTransition.updatedAt < transition.updatedAt) {
+					transitions[key] = transition;
+				}
+			});
+
+			acc.push({ ...item, transitions: Object.values(transitions) });
+
+			return acc;
+		}, []);
+
 		let issueBottlenecks = [];
 		for(let k=0;k<filteredTimelines.length;k++){
 			var inProgressStart = filteredTimelines[k].transitions.find((timeline) => {
@@ -156,117 +185,187 @@ export default {
 				{
 					"number":filteredTimelines[k].number,
 					"closedAt":new Date(filteredTimelines[k].closedAt),
-					"inProgressTime":this.getDiff(new Date(inProgressStart?.updatedAt),new Date(codeReviewStart?.updatedAt)),
-					"codeReviewTime":this.getDiff(new Date(codeReviewStart?.updatedAt),new Date(needsQAStart?.updatedAt)),
-					"qaQueueTime":this.getDiff(new Date(needsQAStart?.updatedAt),new Date(qaInProgressStart?.updatedAt)),
-					"qaTime":this.getDiff(new Date(qaInProgressStart?.updatedAt),new Date(readyForMergeStart?.updatedAt)),
-					"mergeTime":this.getDiff(new Date(readyForMergeStart?.updatedAt),new Date(readyForMergeClose?.updatedAt))
+					"inProgressTime":(inProgressStart?.updatedAt && codeReviewStart?.updatedAt) ? this.getDiff(new Date(inProgressStart?.updatedAt),new Date(codeReviewStart?.updatedAt)) : 0,
+					"codeReviewTime":(codeReviewStart?.updatedAt && needsQAStart?.updatedAt) ? this.getDiff(new Date(codeReviewStart?.updatedAt), new Date(needsQAStart?.updatedAt)) : 0, 
+					"qaQueueTime":(needsQAStart?.updatedAt && qaInProgressStart?.updatedAt) ? this.getDiff(new Date(needsQAStart?.updatedAt),new Date(qaInProgressStart?.updatedAt)) : 0,
+					"qaTime":(qaInProgressStart?.updatedAt && readyForMergeStart?.updatedAt) ? this.getDiff(new Date(qaInProgressStart?.updatedAt),new Date(readyForMergeStart?.updatedAt)) : 0,
+					"mergeTime":(readyForMergeStart?.updatedAt && readyForMergeClose?.updatedAt) ? this.getDiff(new Date(readyForMergeStart?.updatedAt),new Date(readyForMergeClose?.updatedAt)) : 0
 				}
 			)
 		}
-		const filteredArr = issueBottlenecks.filter((obj, index, self) =>
-																								index === self.findIndex((o) => o.number === obj.number)
-																							 );
-		storeValue("issueBottlenecks",filteredArr);
-		//const cycleCalculations = this.doCalculations(issueBottlenecks);
-		//storeValue("cycleCalculations",cycleCalculations);
-		return filteredArr;
+
+		storeValue("issueBottlenecks",issueBottlenecks);
+		const cycleCalculations = this.doCalculations(issueBottlenecks);
+		storeValue("cycleCalculations",cycleCalculations);
+		return cycleCalculations;
 	},
 
-	doCalculations: (data) => {
-		console.log(data);
-		/*const data = [
-    {
-      "number": 20533,
-      "closedAt": "2023-04-06T18:30:05Z",
-      "inProgressTime": 2,
-      "codeReviewTime": 5,
-      "qaQueueTime": 1,
-      "qaTime": 8,
-      "mergeTime": 1
-    },
-    {
-      "number": 20533,
-      "closedAt": "2023-04-06T18:30:05Z",
-      "inProgressTime": 2,
-      "codeReviewTime": 5,
-      "qaQueueTime": 1,
-      "qaTime": 8,
-      "mergeTime": 1
-    },
-    {
-      "number": 21074,
-      "closedAt": "2023-04-04T08:13:53Z",
-      "inProgressTime": 2,
-      "codeReviewTime": 7,
-      "qaQueueTime": 2,
-      "qaTime": 5,
-      "mergeTime": 1
-    },
-    {
-      "number": 21074,
-      "closedAt": "2023-04-04T08:13:53Z",
-      "inProgressTime": 2,
-      "codeReviewTime": 7,
-      "qaQueueTime": 2,
-      "qaTime": 5,
-      "mergeTime": 1
-    },
-    {
-      "number": 21074,
-      "closedAt": "2023-04-04T08:13:53Z",
-      "inProgressTime": 2,
-      "codeReviewTime": 7,
-      "qaQueueTime": 2,
-      "qaTime": 5,
-      "mergeTime": 1
-    },
-    {
-      "number": 17324,
-      "closedAt": "2023-03-29T11:41:46Z",
-      "inProgressTime": null,
-      "codeReviewTime": null,
-      "qaQueueTime": null,
-      "qaTime": 3,
-      "mergeTime": 1
-    },
-    {
-      "number": 20163,
-      "closedAt": "2023-03-08T05:25:19Z",
-      "inProgressTime": 21,
-      "codeReviewTime": 5,
-      "qaQueueTime": 4,
-      "qaTime": 8,
-      "mergeTime": 2
-    },
-    {
-      "number": 20163,
-      "closedAt": "2023-03-08T05:25:19Z",
-      "inProgressTime": 21,
-      "codeReviewTime": 5,
-      "qaQueueTime": 4,
-      "qaTime": 8,
-      "mergeTime": 2
-    },
-    {
-      "number": 15253,
-      "closedAt": "2023-03-03T12:21:05Z",
-      "inProgressTime": 201,
-      "codeReviewTime": 2,
-      "qaQueueTime": 1,
-      "qaTime": 2,
-      "mergeTime": 1
-    },
-    {
-      "number": 19893,
-      "closedAt": "2023-02-10T10:41:20Z",
-      "inProgressTime": null,
-      "codeReviewTime": null,
-      "qaQueueTime": null,
-      "qaTime": 1,
-      "mergeTime": 1
-    }
-  ];*/
+	doCalculations: () => {
+		//console.log(data);
+		const data = [
+			{
+				"number": 14003,
+				"closedAt": "2023-04-13T10:20:48.000Z",
+				"inProgressTime": 8,
+				"codeReviewTime": 1,
+				"qaQueueTime": 2,
+				"qaTime": 10,
+				"mergeTime": 95
+			},
+			{
+				"number": 21373,
+				"closedAt": "2023-04-13T10:17:37.000Z",
+				"inProgressTime": 8,
+				"codeReviewTime": 6,
+				"qaQueueTime": 2,
+				"qaTime": 4,
+				"mergeTime": 4
+			},
+			{
+				"number": 21373,
+				"closedAt": "2023-04-13T10:17:37.000Z",
+				"inProgressTime": 8,
+				"codeReviewTime": 6,
+				"qaQueueTime": 2,
+				"qaTime": 4,
+				"mergeTime": 4
+			},
+			{
+				"number": 21916,
+				"closedAt": "2023-04-07T02:01:29.000Z",
+				"inProgressTime": 5,
+				"codeReviewTime": 1,
+				"qaQueueTime": 1,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 21916,
+				"closedAt": "2023-04-07T02:01:29.000Z",
+				"inProgressTime": 5,
+				"codeReviewTime": 1,
+				"qaQueueTime": 1,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 20290,
+				"closedAt": "2023-04-06T14:12:36.000Z",
+				"inProgressTime": 1,
+				"codeReviewTime": 14,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 30
+			},
+			{
+				"number": 20290,
+				"closedAt": "2023-04-06T14:12:36.000Z",
+				"inProgressTime": 1,
+				"codeReviewTime": 14,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 30
+			},
+			{
+				"number": 20290,
+				"closedAt": "2023-04-06T14:12:36.000Z",
+				"inProgressTime": 1,
+				"codeReviewTime": 14,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 30
+			},
+			{
+				"number": 12260,
+				"closedAt": "2023-03-23T05:53:58.000Z",
+				"inProgressTime": 1,
+				"codeReviewTime": 2,
+				"qaQueueTime": 1,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 21033,
+				"closedAt": "2023-03-15T11:03:17.000Z",
+				"inProgressTime": 2,
+				"codeReviewTime": 2,
+				"qaQueueTime": 4,
+				"qaTime": 2,
+				"mergeTime": 2
+			},
+			{
+				"number": 20160,
+				"closedAt": "2023-03-08T05:40:03.000Z",
+				"inProgressTime": null,
+				"codeReviewTime": null,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 1
+			},
+			{
+				"number": 20162,
+				"closedAt": "2023-03-08T05:39:54.000Z",
+				"inProgressTime": 6,
+				"codeReviewTime": 16,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 1
+			},
+			{
+				"number": 20162,
+				"closedAt": "2023-03-08T05:39:54.000Z",
+				"inProgressTime": 6,
+				"codeReviewTime": 16,
+				"qaQueueTime": 0,
+				"qaTime": 0,
+				"mergeTime": 1
+			},
+			{
+				"number": 20159,
+				"closedAt": "2023-02-24T11:59:26.000Z",
+				"inProgressTime": 6,
+				"codeReviewTime": 8,
+				"qaQueueTime": 2,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 20159,
+				"closedAt": "2023-02-24T11:59:26.000Z",
+				"inProgressTime": 6,
+				"codeReviewTime": 8,
+				"qaQueueTime": 2,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 20158,
+				"closedAt": "2023-02-24T10:12:30.000Z",
+				"inProgressTime": 15,
+				"codeReviewTime": null,
+				"qaQueueTime": null,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 20158,
+				"closedAt": "2023-02-24T10:12:30.000Z",
+				"inProgressTime": 15,
+				"codeReviewTime": null,
+				"qaQueueTime": null,
+				"qaTime": 1,
+				"mergeTime": 1
+			},
+			{
+				"number": 20158,
+				"closedAt": "2023-02-24T10:12:30.000Z",
+				"inProgressTime": 15,
+				"codeReviewTime": null,
+				"qaQueueTime": null,
+				"qaTime": 1,
+				"mergeTime": 1
+			}
+		];
 		// Calculate the mean of the inProgressTime field
 		const inProgressMean = data.reduce((acc, curr) => acc + (curr.inProgressTime || 0), 0) / data.length;
 
