@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1150,
+          "bottomRow": 1160,
           "containerStyle": "none",
           "snapRows": 109,
           "parentRowSpace": 1,
@@ -33,7 +33,7 @@
               "displayName": "Tabs",
               "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
               "topRow": 4,
-              "bottomRow": 115,
+              "bottomRow": 116,
               "parentRowSpace": 10,
               "type": "TABS_WIDGET",
               "hideCard": false,
@@ -58,7 +58,7 @@
                   "tabId": "tab1",
                   "widgetName": "Canvas1",
                   "displayName": "Canvas",
-                  "bottomRow": 1070,
+                  "bottomRow": 1080,
                   "topRow": 0,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
@@ -469,7 +469,7 @@
                   "widgetName": "Canvas3",
                   "displayName": "Canvas",
                   "topRow": 1,
-                  "bottomRow": 1070,
+                  "bottomRow": 1080,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": false,
@@ -481,6 +481,62 @@
                   "dynamicBindingPathList": [],
                   "children": [
                     {
+                      "widgetName": "Text32Copy1",
+                      "displayName": "Text",
+                      "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+                      "searchTags": [
+                        "typography",
+                        "paragraph",
+                        "label"
+                      ],
+                      "topRow": 4,
+                      "bottomRow": 8,
+                      "parentRowSpace": 10,
+                      "type": "TEXT_WIDGET",
+                      "hideCard": false,
+                      "animateLoading": true,
+                      "overflow": "NONE",
+                      "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+                      "parentColumnSpace": 28.9677734375,
+                      "dynamicTriggerPathList": [],
+                      "leftColumn": 32,
+                      "dynamicBindingPathList": [
+                        {
+                          "key": "truncateButtonColor"
+                        },
+                        {
+                          "key": "fontFamily"
+                        },
+                        {
+                          "key": "borderRadius"
+                        }
+                      ],
+                      "shouldTruncate": false,
+                      "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                      "text": "*We switched to <a href=\"https://www.notion.so/appsmith/Agile-Estimations-fc322f8fc6784563a4e63c4c66ac4102\" target=_blank>a new estimation method</a> in February 2023",
+                      "key": "20uj6knn69",
+                      "isDeprecated": false,
+                      "rightColumn": 48,
+                      "textAlign": "LEFT",
+                      "dynamicHeight": "AUTO_HEIGHT",
+                      "widgetId": "hovsdlu8l2",
+                      "minWidth": 450,
+                      "isVisible": true,
+                      "fontStyle": "BOLD,ITALIC",
+                      "textColor": "#231F20",
+                      "version": 1,
+                      "parentId": "83b6ifjr8w",
+                      "renderMode": "CANVAS",
+                      "isLoading": false,
+                      "responsiveBehavior": "fill",
+                      "originalTopRow": 0,
+                      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                      "maxDynamicHeight": 9000,
+                      "originalBottomRow": 5,
+                      "fontSize": "1rem",
+                      "minDynamicHeight": 4
+                    },
+                    {
                       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
                       "widgetName": "Iframe1Copy1CopyCopyCopy2",
                       "displayName": "Iframe",
@@ -488,8 +544,8 @@
                       "searchTags": [
                         "embed"
                       ],
-                      "topRow": 2,
-                      "bottomRow": 44,
+                      "topRow": 9,
+                      "bottomRow": 51,
                       "parentRowSpace": 10,
                       "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1588717545&format=interactive",
                       "type": "IFRAME_WIDGET",
@@ -527,8 +583,8 @@
                       "searchTags": [
                         "embed"
                       ],
-                      "topRow": 52,
-                      "bottomRow": 94,
+                      "topRow": 59,
+                      "bottomRow": 101,
                       "parentRowSpace": 10,
                       "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=2094904128&format=interactive",
                       "type": "IFRAME_WIDGET",
@@ -566,8 +622,8 @@
                       "searchTags": [
                         "embed"
                       ],
-                      "topRow": 2,
-                      "bottomRow": 44,
+                      "topRow": 9,
+                      "bottomRow": 51,
                       "parentRowSpace": 10,
                       "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=860414589&format=interactive",
                       "type": "IFRAME_WIDGET",
@@ -673,7 +729,7 @@
                   "widgetName": "Canvas4",
                   "displayName": "Canvas",
                   "topRow": 1,
-                  "bottomRow": 3140,
+                  "bottomRow": 3220,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": false,
@@ -693,8 +749,8 @@
                         "paragraph",
                         "label"
                       ],
-                      "topRow": 310,
-                      "bottomRow": 314,
+                      "topRow": 318,
+                      "bottomRow": 322,
                       "parentRowSpace": 10,
                       "type": "TEXT_WIDGET",
                       "hideCard": false,
@@ -733,10 +789,10 @@
                       "renderMode": "CANVAS",
                       "isLoading": false,
                       "responsiveBehavior": "fill",
-                      "originalTopRow": 310,
+                      "originalTopRow": 318,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 314,
+                      "originalBottomRow": 322,
                       "fontSize": "1rem",
                       "minDynamicHeight": 4
                     },
@@ -748,7 +804,7 @@
                       "displayName": "Tabs",
                       "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
                       "topRow": 1,
-                      "bottomRow": 89,
+                      "bottomRow": 97,
                       "parentRowSpace": 10,
                       "type": "TABS_WIDGET",
                       "hideCard": false,
@@ -773,7 +829,7 @@
                           "tabId": "tab1",
                           "widgetName": "Canvas13",
                           "displayName": "Canvas",
-                          "bottomRow": 900,
+                          "bottomRow": 920,
                           "topRow": 0,
                           "parentRowSpace": 1,
                           "type": "CANVAS_WIDGET",
@@ -2892,6 +2948,62 @@
                               "firstDayOfWeek": 0,
                               "maxDate": "{{new Date(EndDate.selectedDate)}}",
                               "minDynamicHeight": 4
+                            },
+                            {
+                              "widgetName": "Text32",
+                              "displayName": "Text",
+                              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+                              "searchTags": [
+                                "typography",
+                                "paragraph",
+                                "label"
+                              ],
+                              "topRow": 0,
+                              "bottomRow": 4,
+                              "parentRowSpace": 10,
+                              "type": "TEXT_WIDGET",
+                              "hideCard": false,
+                              "animateLoading": true,
+                              "overflow": "NONE",
+                              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+                              "parentColumnSpace": 28.9677734375,
+                              "dynamicTriggerPathList": [],
+                              "leftColumn": 48,
+                              "dynamicBindingPathList": [
+                                {
+                                  "key": "truncateButtonColor"
+                                },
+                                {
+                                  "key": "fontFamily"
+                                },
+                                {
+                                  "key": "borderRadius"
+                                }
+                              ],
+                              "shouldTruncate": false,
+                              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "text": "*We switched to <a href=\"https://www.notion.so/appsmith/Agile-Estimations-fc322f8fc6784563a4e63c4c66ac4102\" target=_blank>a new estimation method</a> in February 2023",
+                              "key": "20uj6knn69",
+                              "isDeprecated": false,
+                              "rightColumn": 64,
+                              "textAlign": "LEFT",
+                              "dynamicHeight": "AUTO_HEIGHT",
+                              "widgetId": "croxbdwn7f",
+                              "minWidth": 450,
+                              "isVisible": true,
+                              "fontStyle": "BOLD,ITALIC",
+                              "textColor": "#231F20",
+                              "version": 1,
+                              "parentId": "xknzbq9o06",
+                              "renderMode": "CANVAS",
+                              "isLoading": false,
+                              "responsiveBehavior": "fill",
+                              "originalTopRow": 0,
+                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                              "maxDynamicHeight": 9000,
+                              "originalBottomRow": 5,
+                              "fontSize": "1rem",
+                              "minDynamicHeight": 4
                             }
                           ],
                           "isDisabled": false,
@@ -2914,7 +3026,7 @@
                           "tabId": "tab2",
                           "widgetName": "Canvas14",
                           "displayName": "Canvas",
-                          "bottomRow": 840,
+                          "bottomRow": 930,
                           "topRow": 0,
                           "parentRowSpace": 1,
                           "type": "CANVAS_WIDGET",
@@ -2928,6 +3040,62 @@
                           "dynamicBindingPathList": [],
                           "children": [
                             {
+                              "widgetName": "Text32Copy",
+                              "displayName": "Text",
+                              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+                              "searchTags": [
+                                "typography",
+                                "paragraph",
+                                "label"
+                              ],
+                              "topRow": 0,
+                              "bottomRow": 4,
+                              "parentRowSpace": 10,
+                              "type": "TEXT_WIDGET",
+                              "hideCard": false,
+                              "animateLoading": true,
+                              "overflow": "NONE",
+                              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+                              "parentColumnSpace": 28.9677734375,
+                              "dynamicTriggerPathList": [],
+                              "leftColumn": 48,
+                              "dynamicBindingPathList": [
+                                {
+                                  "key": "truncateButtonColor"
+                                },
+                                {
+                                  "key": "fontFamily"
+                                },
+                                {
+                                  "key": "borderRadius"
+                                }
+                              ],
+                              "shouldTruncate": false,
+                              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                              "text": "*We switched to <a href=\"https://www.notion.so/appsmith/Agile-Estimations-fc322f8fc6784563a4e63c4c66ac4102\" target=_blank>a new estimation method</a> in February 2023",
+                              "key": "20uj6knn69",
+                              "isDeprecated": false,
+                              "rightColumn": 64,
+                              "textAlign": "LEFT",
+                              "dynamicHeight": "AUTO_HEIGHT",
+                              "widgetId": "3zi9k8p4d3",
+                              "minWidth": 450,
+                              "isVisible": true,
+                              "fontStyle": "BOLD,ITALIC",
+                              "textColor": "#231F20",
+                              "version": 1,
+                              "parentId": "oabg0t5xwq",
+                              "renderMode": "CANVAS",
+                              "isLoading": false,
+                              "responsiveBehavior": "fill",
+                              "originalTopRow": 0,
+                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                              "maxDynamicHeight": 9000,
+                              "originalBottomRow": 5,
+                              "fontSize": "1rem",
+                              "minDynamicHeight": 4
+                            },
+                            {
                               "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
                               "widgetName": "Iframe2",
                               "displayName": "Iframe",
@@ -2935,8 +3103,8 @@
                               "searchTags": [
                                 "embed"
                               ],
-                              "topRow": 2,
-                              "bottomRow": 40,
+                              "topRow": 9,
+                              "bottomRow": 47,
                               "parentRowSpace": 10,
                               "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1806694775&format=interactive",
                               "type": "IFRAME_WIDGET",
@@ -2974,8 +3142,8 @@
                               "searchTags": [
                                 "embed"
                               ],
-                              "topRow": 43,
-                              "bottomRow": 82,
+                              "topRow": 54,
+                              "bottomRow": 93,
                               "parentRowSpace": 10,
                               "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1763559091&format=interactive",
                               "type": "IFRAME_WIDGET",
@@ -3003,7 +3171,9 @@
                               "parentId": "oabg0t5xwq",
                               "renderMode": "CANVAS",
                               "isLoading": false,
-                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+                              "originalTopRow": 55,
+                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                              "originalBottomRow": 94
                             },
                             {
                               "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
@@ -3013,8 +3183,8 @@
                               "searchTags": [
                                 "embed"
                               ],
-                              "topRow": 1,
-                              "bottomRow": 40,
+                              "topRow": 9,
+                              "bottomRow": 48,
                               "parentRowSpace": 10,
                               "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1033489449&format=interactive",
                               "type": "IFRAME_WIDGET",
@@ -3042,7 +3212,9 @@
                               "parentId": "oabg0t5xwq",
                               "renderMode": "CANVAS",
                               "isLoading": false,
-                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+                              "originalTopRow": 10,
+                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                              "originalBottomRow": 49
                             }
                           ],
                           "isDisabled": false,
@@ -3100,7 +3272,7 @@
                       "originalTopRow": 1,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 89,
+                      "originalBottomRow": 97,
                       "minDynamicHeight": 15
                     }
                   ],
@@ -5012,7 +5184,7 @@
               "originalTopRow": 4,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 115,
+              "originalBottomRow": 116,
               "minDynamicHeight": 15
             },
             {
