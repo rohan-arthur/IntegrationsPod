@@ -21,8 +21,12 @@
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [
-        {},
-        {}
+        {
+          "name": "startDate"
+        },
+        {
+          "name": "endDate"
+        }
       ],
       "isAsync": false
     },

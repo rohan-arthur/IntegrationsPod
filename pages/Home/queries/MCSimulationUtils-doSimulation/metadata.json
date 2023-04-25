@@ -21,8 +21,12 @@
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [
-        {},
-        {}
+        {
+          "name": "cycleTimes"
+        },
+        {
+          "name": "numberOfTasks"
+        }
       ],
       "isAsync": false
     },

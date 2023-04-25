@@ -21,8 +21,12 @@
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [
-        {},
-        {}
+        {
+          "name": "arr"
+        },
+        {
+          "name": "q"
+        }
       ],
       "isAsync": false
     },
