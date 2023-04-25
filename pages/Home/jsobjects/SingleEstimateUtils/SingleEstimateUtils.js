@@ -32,7 +32,6 @@ export default {
 			}
 		}
 		//start: remove_duplicates
-		//return cycleTimes;
 		const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {
 			if (!acc[curr.number] || acc[curr.number].cycleTime > curr.cycleTime) {
 				acc[curr.number] = curr;
@@ -53,7 +52,6 @@ export default {
 
 
 	getDiff: (startDate, endDate) =>{
-		//if(startDate===undefined || endDate===undefined)
 		if(!startDate || !endDate){
 			return null;
 		}
@@ -64,7 +62,7 @@ export default {
 	},
 
 
-
+//this function is worse than spaghetti - it is also simply wrong. Needs a complete rewrite.
 	getInternalCycleTimes: async () => {
 		const data = appsmith.store.issuesForEstimate;
 		let timelines = [];
