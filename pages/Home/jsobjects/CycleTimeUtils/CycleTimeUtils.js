@@ -1,6 +1,14 @@
 export default {
 	myVar1: [],
 	myVar2: {},
+	
+	getImpactBasedCycleTimes: async () => {
+		const impact = ["Critical", "High", "medium", "Low"]; 
+		for(var i=0;i<impact.length;i++){
+			var closedIssuesData = await GetIssuesByImpact.run({impactLabel: impact[i]});
+			console.log(closedIssuesData.data.searchClosedIssues.totalCount);
+		}
+	},
 
 	getStats: async () => {
 		let estimates = [0.5, 1, 2, 3, 5, 8];

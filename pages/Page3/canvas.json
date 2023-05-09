@@ -19,7 +19,7 @@
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
-          "version": 77,
+          "version": 78,
           "minHeight": 1110,
           "parentColumnSpace": 1,
           "dynamicBindingPathList": [],
@@ -80,7 +80,7 @@
               "originalTopRow": 30,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 34,
+              "originalBottomRow": 139,
               "fontSize": "1rem",
               "minDynamicHeight": 4
             }

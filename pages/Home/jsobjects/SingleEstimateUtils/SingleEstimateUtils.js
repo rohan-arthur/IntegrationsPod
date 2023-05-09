@@ -62,7 +62,7 @@ export default {
 	},
 
 
-//this function is worse than spaghetti - it is also simply wrong. Needs a complete rewrite.
+	//this function is worse than spaghetti - it is also simply wrong. Needs a complete rewrite.
 	getInternalCycleTimes: async () => {
 		const data = appsmith.store.issuesForEstimate;
 		let timelines = [];
@@ -134,9 +134,10 @@ export default {
 				}
 			}
 		}
-		const closedTimelines = timelines.filter((obj) => obj.transitions.some((t) => t.to === "Closed"));
-		//const filteredTimelines
-		const filteredTimelines = closedTimelines.reduce((acc, item) => {
+
+		//		const closedTimelines = timelines.filter((obj) => obj.transitions.some((t) => t.to === "Closed"));
+
+		const filteredTimelines = timelines.reduce((acc, item) => {
 			const transitions = {};
 
 			item.transitions.forEach((transition) => {
@@ -191,64 +192,64 @@ export default {
 				}
 			)
 		}
-
 		storeValue("issueBottlenecks",issueBottlenecks);
 		const cycleCalculations = this.doCalculations(issueBottlenecks);
 		storeValue("cycleCalculations",cycleCalculations);
 		return cycleCalculations;
 	},
-
 	doCalculations: (data) => {
-		//console.log(data);
+		const filteredData = data.filter(item => {
+			return item.inProgressTime !== 0 || item.codeReviewTime !== 0 || item.qaQueueTime !== 0 || item.qaTime !== 0 || item.mergeTime !== 0;
+		});
 		// Calculate the mean of the inProgressTime field
-		const inProgressMean = data.reduce((acc, curr) => acc + (curr.inProgressTime || 0), 0) / data.length;
+		const inProgressMean = filteredData.reduce((acc, curr) => acc + (curr.inProgressTime || 0), 0) / filteredData.length;
 
 		// Calculate the mean of the codeReviewTime field
-		const codeReviewMean = data.reduce((acc, curr) => acc + (curr.codeReviewTime || 0), 0) / data.length;
+		const codeReviewMean = filteredData.reduce((acc, curr) => acc + (curr.codeReviewTime || 0), 0) / filteredData.length;
 
 		// Calculate the mean of the qaQueueTime field
-		const qaQueueMean = data.reduce((acc, curr) => acc + curr.qaQueueTime, 0) / data.length;
+		const qaQueueMean = filteredData.reduce((acc, curr) => acc + curr.qaQueueTime, 0) / filteredData.length;
 
 		// Calculate the mean of the qaTime field
-		const qaTimeMean = data.reduce((acc, curr) => acc + curr.qaTime, 0) / data.length;
+		const qaTimeMean = filteredData.reduce((acc, curr) => acc + curr.qaTime, 0) / filteredData.length;
 
 		// Calculate the mean of the mergeTime field
-		const mergeTimeMean = data.reduce((acc, curr) => acc + curr.mergeTime, 0) / data.length;
+		const mergeTimeMean = filteredData.reduce((acc, curr) => acc + curr.mergeTime, 0) / filteredData.length;
 
 		// Calculate the median of the inProgressTime field
-		const inProgressSorted = data.map((x) => x.inProgressTime).sort();
+		const inProgressSorted = filteredData.map((x) => x.inProgressTime).sort();
 		const inProgressMedian = inProgressSorted.length % 2 === 0 ? (inProgressSorted[inProgressSorted.length / 2] + inProgressSorted[(inProgressSorted.length / 2) - 1]) / 2 : inProgressSorted[Math.floor(inProgressSorted.length / 2)];
 
 		// Calculate the median of the codeReviewTime field
-		const codeReviewSorted = data.map((x) => x.codeReviewTime).sort();
+		const codeReviewSorted = filteredData.map((x) => x.codeReviewTime).sort();
 		const codeReviewMedian = codeReviewSorted.length % 2 === 0 ? (codeReviewSorted[codeReviewSorted.length / 2] + codeReviewSorted[(codeReviewSorted.length / 2) - 1]) / 2 : codeReviewSorted[Math.floor(codeReviewSorted.length / 2)];
 
 		// Calculate the median of the qaQueueTime field
-		const qaQueueSorted = data.map((x) => x.qaQueueTime).sort();
+		const qaQueueSorted = filteredData.map((x) => x.qaQueueTime).sort();
 		const qaQueueMedian = qaQueueSorted.length % 2 === 0 ? (qaQueueSorted[qaQueueSorted.length / 2] + qaQueueSorted[(qaQueueSorted.length / 2) - 1]) / 2 : qaQueueSorted[Math.floor(qaQueueSorted.length / 2)];
 
 		// Calculate the median of the qaTime field
-		const qaTimeSorted = data.map((x) => x.qaTime).sort();
+		const qaTimeSorted = filteredData.map((x) => x.qaTime).sort();
 		const qaTimeMedian = qaTimeSorted.length % 2 === 0 ? (qaTimeSorted[qaTimeSorted.length / 2] + qaTimeSorted[(qaTimeSorted.length / 2) - 1]) / 2 : qaTimeSorted[Math.floor(qaTimeSorted.length / 2)];
 
 		// Calculate the median of the mergeTime field
-		const mergeTimeSorted = data.map((x) => x.mergeTime).sort();
+		const mergeTimeSorted = filteredData.map((x) => x.mergeTime).sort();
 		const mergeTimeMedian = mergeTimeSorted.length % 2 === 0 ? (mergeTimeSorted[mergeTimeSorted.length / 2] + mergeTimeSorted[(mergeTimeSorted.length / 2) - 1]) / 2 : mergeTimeSorted[Math.floor(mergeTimeSorted.length / 2)];
 
 		// Calculate the standard deviation of the inProgressTime field
-		const inProgressSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
+		const inProgressSD = Math.sqrt(filteredData.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / filteredData.length);
 
 		// Calculate the standard deviation of the inProgressTime field
-		const codeReviewSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
+		const codeReviewSD = Math.sqrt(filteredData.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / filteredData.length);
 
 		// Calculate the standard deviation of the inProgressTime field
-		const qaQueueSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
+		const qaQueueSD = Math.sqrt(filteredData.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / filteredData.length);
 
 		// Calculate the standard deviation of the inProgressTime field
-		const qaTimeSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
+		const qaTimeSD = Math.sqrt(filteredData.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / filteredData.length);
 
 		// Calculate the standard deviation of the inProgressTime field
-		const mergeTimeSD = Math.sqrt(data.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / data.length);
+		const mergeTimeSD = Math.sqrt(filteredData.reduce((acc, curr) => acc + Math.pow(curr.inProgressTime - inProgressMean, 2), 0) / filteredData.length);
 
 		const result = [
 			{

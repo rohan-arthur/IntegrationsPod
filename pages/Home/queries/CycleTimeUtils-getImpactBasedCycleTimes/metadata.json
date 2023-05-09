@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getDiff",
-    "fullyQualifiedName": "JSObject1.getDiff",
+    "name": "getImpactBasedCycleTimes",
+    "fullyQualifiedName": "CycleTimeUtils.getImpactBasedCycleTimes",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,14 +14,14 @@
       "userPermissions": []
     },
     "pageId": "Home",
-    "collectionId": "Home_JSObject1",
+    "collectionId": "Home_CycleTimeUtils",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": false
+      "isAsync": true
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -37,7 +37,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_JSObject1.getDiff",
+  "id": "Home_CycleTimeUtils.getImpactBasedCycleTimes",
   "deleted": false,
-  "gitSyncId": "6438efac5a787709661d86f8_643d20d1e0735231ba679979"
+  "gitSyncId": "64539597719780081cd9e98f_64539911b0666f060ac3be15"
 }
