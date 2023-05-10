@@ -3,7 +3,7 @@ query closedIssues{
 #  	query: "metrics"
     filters:{
     labels:{
-      in: ["Integrations Pod",{{this.params.impactLabel}}]
+      in: ["Integrations Pod","Critical"]
     }
   }
   ){

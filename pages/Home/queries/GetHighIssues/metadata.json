@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "graphql-plugin",
   "unpublishedAction": {
-    "name": "GetIssuesByImpact",
+    "name": "GetHighIssues",
     "datasource": {
       "name": "Zenhub",
       "pluginId": "graphql-plugin",
@@ -25,7 +25,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "query closedIssues{\n  searchClosedIssues(workspaceId:\"6322a759b3296d249ce5c4ed\"\n#  \tquery: \"metrics\"\n    filters:{\n    labels:{\n      in: [\"Integrations Pod\",{{this.params.impactLabel}}]\n    }\n  }\n  ){\n    totalCount\n    pipelineCounts{\n      sumEstimates\n    }\n    nodes{\n      title\n      number\n\t\t\tclosedAt\n      assignees{\n        nodes{\n          name\n        }\n      }\n      timelineItems{\n        nodes{\n          data\n          key\n          updatedAt\n        }\n      }\n    }\n  }\n}",
+      "body": "query closedIssues{\n  searchClosedIssues(workspaceId:\"6322a759b3296d249ce5c4ed\"\n#  \tquery: \"metrics\"\n    filters:{\n    labels:{\n      in: [\"Integrations Pod\",\"High\"]\n    }\n  }\n  ){\n    totalCount\n    pipelineCounts{\n      sumEstimates\n    }\n    nodes{\n      title\n      number\n\t\t\tclosedAt\n      assignees{\n        nodes{\n          name\n        }\n      }\n      timelineItems{\n        nodes{\n          data\n          key\n          updatedAt\n        }\n      }\n    }\n  }\n}",
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
@@ -44,23 +44,17 @@
       }
     },
     "executeOnLoad": false,
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "this.params.impactLabel"
-    ],
+    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Home_GetIssuesByImpact",
+  "id": "Home_GetHighIssues",
   "deleted": false,
-  "gitSyncId": "64539597719780081cd9e98f_64539c297bd0f3636ddcc767"
+  "gitSyncId": "64539597719780081cd9e98f_6459efff69e3e85c5587907d"
 }

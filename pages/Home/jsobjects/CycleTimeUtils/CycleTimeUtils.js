@@ -2,12 +2,35 @@ export default {
 	myVar1: [],
 	myVar2: {},
 	
+	//in progress
 	getImpactBasedCycleTimes: async () => {
-		const impact = ["Critical", "High", "medium", "Low"]; 
-		for(var i=0;i<impact.length;i++){
-			var closedIssuesData = await GetIssuesByImpact.run({impactLabel: impact[i]});
-			console.log(closedIssuesData.data.searchClosedIssues.totalCount);
-		}
+		let cycleTimesByImpact = [];
+
+		//const impact = ["Critical", "High", "medium", "Low"]; 
+		const criticalIssuesData = await GetCriticalssues.run();
+		const highIssuesData = await GetHighIssues.run();
+		const mediumIssuesData = await GetMediumIssues.run();
+		const lowIssuesData = await GetLowIssues.run();
+		const masterData = [
+			{
+				"impact":"critical",
+				"issues":criticalIssuesData
+			},
+			{
+				"impact":"high",
+				"issues":highIssuesData
+			},
+			{
+				"impact":"medium",
+				"issues":mediumIssuesData
+			},
+			{
+				"impact":"low",
+				"issues":lowIssuesData
+			}
+		];
+
+		return masterData;
 	},
 
 	getStats: async () => {
@@ -62,12 +85,11 @@ export default {
 		let cycleTimes = [];
 		var data = GetCycleTimes.data.data.searchClosedIssues.nodes;
 
-			
+
 
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;
 			for(var j=0; j<timelineItems.length; j++){
-				//if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date("2023-02-01T00:00:00Z")){
 				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
 					cycleTimes.push({
 						"number":data[i].number,
@@ -79,7 +101,7 @@ export default {
 				}
 			}
 		}
-		
+
 		//start: remove_duplicates
 		//return cycleTimes;
 		const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {
