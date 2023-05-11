@@ -116,17 +116,17 @@ export default {
 						}
 					);
 				}
-				if(timelineItems[j].data.from_pipeline.name==="QA In Progress" && timelineItems[j].data.to_pipeline.name==="Ready for Merge"){
+				if(timelineItems[j].data.from_pipeline.name==="QA In Progress" && (timelineItems[j].data.to_pipeline.name==="Ready for Merge" || timelineItems[j].data.to_pipeline.name==="QA Done")){
 					timelines[i].transitions.push(
 						{
 							"from":"QA In Progress",
-							"to":"Ready for Merge",
+							"to":"QA Done",
 							"updatedAt":timelineItems[j].updatedAt
 						}
 					);
 					timelines[i].transitions.push(
 						{
-							"from":"Ready for Merge",
+							"from":"QA Done",
 							"to":"Closed",
 							"updatedAt":data[i].closedAt
 						}
@@ -172,12 +172,12 @@ export default {
 				return timeline.from === "Needs QA" && timeline.to === "QA In Progress";
 			});
 
-			var readyForMergeStart = filteredTimelines[k].transitions.find((timeline) => {
-				return timeline.from === "QA In Progress" && timeline.to === "Ready for Merge";
+			var qaDoneStart = filteredTimelines[k].transitions.find((timeline) => {
+				return timeline.from === "QA In Progress" && (timeline.to === "Ready for Merge" || timeline.to === "QA Done");
 			});
 
-			var readyForMergeClose = filteredTimelines[k].transitions.find((timeline) => {
-				return timeline.from === "Ready for Merge" && timeline.to === "Closed";
+			var qaDoneClose = filteredTimelines[k].transitions.find((timeline) => {
+				return (timeline.from === "Ready for Merge" || timeline.from === "QA Done") && timeline.to === "Closed";
 			});
 
 			issueBottlenecks.push(
@@ -187,8 +187,8 @@ export default {
 					"inProgressTime":(inProgressStart?.updatedAt && codeReviewStart?.updatedAt) ? this.getDiff(new Date(inProgressStart?.updatedAt),new Date(codeReviewStart?.updatedAt)) : 0,
 					"codeReviewTime":(codeReviewStart?.updatedAt && needsQAStart?.updatedAt) ? this.getDiff(new Date(codeReviewStart?.updatedAt), new Date(needsQAStart?.updatedAt)) : 0, 
 					"qaQueueTime":(needsQAStart?.updatedAt && qaInProgressStart?.updatedAt) ? this.getDiff(new Date(needsQAStart?.updatedAt),new Date(qaInProgressStart?.updatedAt)) : 0,
-					"qaTime":(qaInProgressStart?.updatedAt && readyForMergeStart?.updatedAt) ? this.getDiff(new Date(qaInProgressStart?.updatedAt),new Date(readyForMergeStart?.updatedAt)) : 0,
-					"mergeTime":(readyForMergeStart?.updatedAt && readyForMergeClose?.updatedAt) ? this.getDiff(new Date(readyForMergeStart?.updatedAt),new Date(readyForMergeClose?.updatedAt)) : 0
+					"qaTime":(qaInProgressStart?.updatedAt && qaDoneStart?.updatedAt) ? this.getDiff(new Date(qaInProgressStart?.updatedAt),new Date(qaDoneStart?.updatedAt)) : 0,
+					"mergeTime":(qaDoneStart?.updatedAt && qaDoneClose?.updatedAt) ? this.getDiff(new Date(qaDoneStart?.updatedAt),new Date(qaDoneClose?.updatedAt)) : 0
 				}
 			)
 		}
