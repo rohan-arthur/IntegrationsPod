@@ -1,0 +1,5 @@
+INSERT into public."cycle_time_notes" (notes, issue_id)
+	VALUES ('{{Notes_for_issue_textedit.text}}', '{{EndToEndCycleTimesTable.triggeredRow.number}}')
+ON CONFLICT (issue_id)
+DO
+update set notes = '{{Notes_for_issue_textedit.text}}'

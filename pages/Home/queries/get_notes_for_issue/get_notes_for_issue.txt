@@ -1,0 +1,1 @@
+SELECT * FROM public."cycle_time_notes" where issue_id = '{{EndToEndCycleTimesTable.triggeredRow.number}}';
