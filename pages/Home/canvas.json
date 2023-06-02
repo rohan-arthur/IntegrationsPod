@@ -5659,7 +5659,7 @@
                       "text": "Notes for: {{EndToEndCycleTimesTable.triggeredRow.number}}",
                       "key": "f4y44yvorl",
                       "isDeprecated": false,
-                      "rightColumn": 29,
+                      "rightColumn": 11,
                       "textAlign": "LEFT",
                       "dynamicHeight": "AUTO_HEIGHT",
                       "widgetId": "2crmapqzr3",
@@ -5796,6 +5796,7 @@
                       "boxShadow": "none",
                       "mobileBottomRow": 5,
                       "widgetName": "IconButton4",
+                      "onClick": "{{navigateTo('https://github.com/appsmithorg/appsmith/issues/' + EndToEndCycleTimesTable.triggeredRow.number, {}, 'NEW_WINDOW');}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
                       "displayName": "Icon Button",
                       "iconSVG": "/static/media/icon.1a0c634ac75f9fa6b6ae7a8df882a3ba.svg",
@@ -5811,8 +5812,12 @@
                       "mobileRightColumn": 33,
                       "animateLoading": true,
                       "parentColumnSpace": 6.9375,
-                      "dynamicTriggerPathList": [],
-                      "leftColumn": 29,
+                      "dynamicTriggerPathList": [
+                        {
+                          "key": "onClick"
+                        }
+                      ],
+                      "leftColumn": 11,
                       "dynamicBindingPathList": [
                         {
                           "key": "buttonColor"
@@ -5824,7 +5829,7 @@
                       "isDisabled": false,
                       "key": "nr5mh5tu7x",
                       "isDeprecated": false,
-                      "rightColumn": 33,
+                      "rightColumn": 15,
                       "iconName": "link",
                       "widgetId": "6xqfkn2fez",
                       "minWidth": 50,
@@ -5845,7 +5850,7 @@
                       "widgetName": "Notes_for_issue_textedit",
                       "displayName": "Rich Text Editor",
                       "iconSVG": "/static/media/icon.b35e139c93907b5eab3c68c1db842330.svg",
-                      "labelText": "Label",
+                      "labelText": "Notes",
                       "searchTags": [
                         "input",
                         "rte"
