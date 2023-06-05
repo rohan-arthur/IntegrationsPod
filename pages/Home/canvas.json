@@ -1540,7 +1540,11 @@
                                         "customColumn1",
                                         "customColumn2"
                                       ],
-                                      "dynamicPropertyPathList": [],
+                                      "dynamicPropertyPathList": [
+                                        {
+                                          "key": "primaryColumns.customColumn2.onClick"
+                                        }
+                                      ],
                                       "displayName": "Table",
                                       "bottomRow": 78,
                                       "columnWidthMap": {
@@ -1746,7 +1750,7 @@
                                           "boxShadow": "{{EndToEndCycleTimesTable.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
                                           "customAlias": "",
                                           "iconName": "edit",
-                                          "onClick": "{{get_notes_for_issue.run()\nshowModal('Modal1');}}"
+                                          "onClick": "{{get_notes_for_issue.run().then(\nshowModal('Modal1'));}}"
                                         }
                                       },
                                       "key": "l11kf6c2km",
