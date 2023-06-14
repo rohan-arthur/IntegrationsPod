@@ -15,10 +15,10 @@ export default {
 		let issuesForEstimate = [];
 		var data = GetCycle_onSelection.data.data.searchClosedIssues.nodes;
 
+		/*
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;
 			for(var j=0; j<timelineItems.length; j++){
-				//if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date("2023-02-01T00:00:00Z")){
 				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
 					issuesForEstimate.push(data[i]);
 					cycleTimes.push({
@@ -30,7 +30,37 @@ export default {
 												 );
 				}
 			}
+		}*/
+		
+		for(var i=0; i<data.length; i++){
+			var allChangePipelineItems = data[i].timelineItems.nodes.filter(item => item.key === "issue.change_pipeline");
+			var podChangedPipeLineItems = allChangePipelineItems.filter(item => item.data.workspace.name === "Data Integration Pod");
+			var changedPipeLineItemsToProgress = podChangedPipeLineItems.filter(item => item.data.to_pipeline.name === "In Progress");
+			for(var j=0; j<changedPipeLineItemsToProgress.length; j++){
+				if(new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
+					issuesForEstimate.push(data[i]);
+					cycleTimes.push({
+						"title":data[i].title,
+						"number":data[i].number,
+						"startedAt":changedPipeLineItemsToProgress[j].updatedAt,
+						"closedAt":data[i].closedAt,
+						"cycleTime":this.getDiff(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
+						"assignee": data[i].assignees.nodes.length > 0 ? data[i].assignees.nodes[0].name : "No Assignee",
+						"timelineItems": podChangedPipeLineItems.map(item => {
+							return {
+								"id": item.updatedAt,
+								"from": item.data.from_pipeline.name,
+								"to": item.data.to_pipeline.name,
+								"timeStamp": (new Date(item.updatedAt)).toDateString(),
+								"by": item.data.github_user.login 
+							}
+						})
+					});
+				}
+			}
 		}
+		
+		
 		//start: remove_duplicates
 		const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {
 			if (!acc[curr.number] || acc[curr.number].cycleTime > curr.cycleTime) {

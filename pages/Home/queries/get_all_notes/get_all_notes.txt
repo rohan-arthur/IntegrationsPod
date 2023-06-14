@@ -1,0 +1,1 @@
+SELECT * FROM public."cycle_time_notes" WHERE created_at >= {{moment(NotesStartDate.formattedDate).format()}} and created_at <= {{moment(NotesEndDate.formattedDate).format()}};
