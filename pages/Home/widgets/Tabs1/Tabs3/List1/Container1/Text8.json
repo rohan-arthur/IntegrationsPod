@@ -7,8 +7,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 4,
-    "bottomRow": 8,
+    "topRow": 6,
+    "bottomRow": 10,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -17,7 +17,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 10.71875,
     "dynamicTriggerPathList": [],
-    "leftColumn": 44,
+    "leftColumn": 33,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -29,7 +29,7 @@
     "text": "Std Dev: {{currentItem.stdDev.toPrecision(3)}}",
     "key": "7viwzwo6de",
     "isDeprecated": false,
-    "rightColumn": 60,
+    "rightColumn": 49,
     "textAlign": "LEFT",
     "dynamicHeight": "FIXED",
     "widgetId": "lykviuhuo7",

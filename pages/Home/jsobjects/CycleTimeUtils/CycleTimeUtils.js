@@ -1,7 +1,7 @@
 export default {
 	myVar1: [],
 	myVar2: {},
-	
+
 	//in progress
 	getImpactBasedCycleTimes: async () => {
 		let cycleTimesByImpact = [];
@@ -34,7 +34,7 @@ export default {
 	},
 
 	getStats: async () => {
-		let estimates = [0.5, 1, 2, 3, 5, 8];
+		let estimates = [0.2, 0.5, 1, 2, 3, 5, 8];
 		var stats = [];
 		var globalCycleTimes = [];
 		for(var i=0; i<estimates.length; i++){

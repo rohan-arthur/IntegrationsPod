@@ -6,7 +6,7 @@
     "displayName": "Tabs",
     "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
     "topRow": 1,
-    "bottomRow": 74,
+    "bottomRow": 188,
     "parentRowSpace": 10,
     "type": "TABS_WIDGET",
     "hideCard": false,
@@ -75,6 +75,6 @@
     "originalTopRow": 1,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 74,
+    "originalBottomRow": 188,
     "minDynamicHeight": 15
 }

@@ -62,7 +62,7 @@
         }
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "columnUpdatedAt": 1686729162346,
+    "columnUpdatedAt": 1689231033023,
     "originalBottomRow": 78,
     "defaultSelectedRowIndices": [0],
     "widgetName": "EndToEndCycleTimesTable",
@@ -83,10 +83,12 @@
         {"key": "tableData"}
     ],
     "displayName": "Table",
-    "bottomRow": 70,
+    "bottomRow": 80,
     "columnWidthMap": {
         "task": 245,
         "step": 70,
+        "customColumn2": 94,
+        "title": 342,
         "status": 85
     },
     "parentRowSpace": 10,
@@ -361,7 +363,7 @@
             "allowCellWrapping": false,
             "index": 6,
             "isDiscardVisible": true,
-            "isVisible": true,
+            "isVisible": false,
             "label": "timelineItems",
             "fontStyle": "",
             "textColor": "",
@@ -379,7 +381,7 @@
     "key": "l11kf6c2km",
     "canFreezeColumn": true,
     "isDeprecated": false,
-    "rightColumn": 56,
+    "rightColumn": 63,
     "textSize": "0.875rem",
     "widgetId": "why8bg3hz6",
     "minWidth": 450,

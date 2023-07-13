@@ -6,7 +6,7 @@
     "displayName": "Tabs",
     "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
     "topRow": 9,
-    "bottomRow": 85,
+    "bottomRow": 95,
     "parentRowSpace": 10,
     "type": "TABS_WIDGET",
     "hideCard": false,
@@ -14,7 +14,7 @@
     "animateLoading": true,
     "parentColumnSpace": 29.2802734375,
     "dynamicTriggerPathList": [],
-    "leftColumn": 24,
+    "leftColumn": 14,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
@@ -24,7 +24,7 @@
     "key": "t9vqnozj9l",
     "backgroundColor": "#FFFFFF",
     "isDeprecated": false,
-    "rightColumn": 63,
+    "rightColumn": 64,
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "x4nbzx8vwj",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
@@ -58,6 +58,6 @@
     "originalTopRow": 9,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 85,
+    "originalBottomRow": 95,
     "minDynamicHeight": 15
 }

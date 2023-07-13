@@ -28,7 +28,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "{{get_notes_for_issue.data[0].created_at}}",
+    "text": "{{moment(get_notes_for_issue.data[0].created_at).format(('DD MMM YYYY'))}}",
     "key": "f4y44yvorl",
     "isDeprecated": false,
     "rightColumn": 17,
