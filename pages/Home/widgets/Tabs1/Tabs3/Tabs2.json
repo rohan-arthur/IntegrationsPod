@@ -1,0 +1,63 @@
+{
+    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+    "widgetName": "Tabs2",
+    "borderColor": "#E0DEDE",
+    "isCanvas": true,
+    "displayName": "Tabs",
+    "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
+    "topRow": 9,
+    "bottomRow": 85,
+    "parentRowSpace": 10,
+    "type": "TABS_WIDGET",
+    "hideCard": false,
+    "shouldScrollContents": true,
+    "animateLoading": true,
+    "parentColumnSpace": 29.2802734375,
+    "dynamicTriggerPathList": [],
+    "leftColumn": 24,
+    "dynamicBindingPathList": [
+        {"key": "accentColor"},
+        {"key": "borderRadius"},
+        {"key": "boxShadow"}
+    ],
+    "borderWidth": 1,
+    "key": "t9vqnozj9l",
+    "backgroundColor": "#FFFFFF",
+    "isDeprecated": false,
+    "rightColumn": 63,
+    "dynamicHeight": "AUTO_HEIGHT",
+    "widgetId": "x4nbzx8vwj",
+    "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+    "defaultTab": "End to end Cycle Times",
+    "shouldShowTabs": true,
+    "minWidth": 450,
+    "tabsObj": {
+        "tab1": {
+            "widgetId": "xuihfmcgls",
+            "positioning": "vertical",
+            "index": 0,
+            "label": "End to end Cycle Times",
+            "id": "tab1",
+            "isVisible": true
+        },
+        "tab2": {
+            "widgetId": "ji9un4wti8",
+            "positioning": "vertical",
+            "index": 1,
+            "label": "Internal Cycle Times",
+            "id": "tab2",
+            "isVisible": false
+        }
+    },
+    "isVisible": true,
+    "version": 3,
+    "parentId": "xknzbq9o06",
+    "renderMode": "CANVAS",
+    "isLoading": false,
+    "responsiveBehavior": "fill",
+    "originalTopRow": 9,
+    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "maxDynamicHeight": 9000,
+    "originalBottomRow": 85,
+    "minDynamicHeight": 15
+}

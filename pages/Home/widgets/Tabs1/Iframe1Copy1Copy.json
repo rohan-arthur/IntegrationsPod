@@ -1,0 +1,33 @@
+{
+    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+    "widgetName": "Iframe1Copy1Copy",
+    "displayName": "Iframe",
+    "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
+    "searchTags": ["embed"],
+    "topRow": 1,
+    "bottomRow": 43,
+    "parentRowSpace": 10,
+    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=775815375&format=interactive",
+    "type": "IFRAME_WIDGET",
+    "hideCard": false,
+    "borderOpacity": 100,
+    "animateLoading": true,
+    "parentColumnSpace": 29.75,
+    "dynamicTriggerPathList": [],
+    "leftColumn": 34,
+    "dynamicBindingPathList": [
+        {"key": "borderRadius"},
+        {"key": "boxShadow"}
+    ],
+    "borderWidth": 1,
+    "key": "ecyw3yt677",
+    "isDeprecated": false,
+    "rightColumn": 56,
+    "widgetId": "oso792wvm3",
+    "isVisible": true,
+    "version": 1,
+    "parentId": "vj33jep9dq",
+    "renderMode": "CANVAS",
+    "isLoading": false,
+    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+}

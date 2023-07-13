@@ -1,0 +1,39 @@
+{
+    "boxShadow": "none",
+    "widgetName": "IconButton1",
+    "onClick": "{{navigateTo('https://kanbanize.com/kanban-resources/kanban-analytics/monte-carlo-simulation', {},'NEW_WINDOW')}}",
+    "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+    "displayName": "Icon Button",
+    "iconSVG": "/static/media/icon.1a0c634ac75f9fa6b6ae7a8df882a3ba.svg",
+    "searchTags": [
+        "click",
+        "submit"
+    ],
+    "topRow": 54,
+    "bottomRow": 58,
+    "parentRowSpace": 10,
+    "type": "ICON_BUTTON_WIDGET",
+    "hideCard": false,
+    "animateLoading": true,
+    "parentColumnSpace": 29.2802734375,
+    "dynamicTriggerPathList": [{"key": "onClick"}],
+    "leftColumn": 37,
+    "dynamicBindingPathList": [
+        {"key": "buttonColor"},
+        {"key": "borderRadius"}
+    ],
+    "isDisabled": false,
+    "key": "rzutgeqvii",
+    "isDeprecated": false,
+    "rightColumn": 39,
+    "iconName": "lightbulb",
+    "widgetId": "4cxyz3tgva",
+    "minWidth": 50,
+    "isVisible": true,
+    "version": 1,
+    "parentId": "n421pqzyiu",
+    "renderMode": "CANVAS",
+    "isLoading": false,
+    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "buttonVariant": "PRIMARY"
+}

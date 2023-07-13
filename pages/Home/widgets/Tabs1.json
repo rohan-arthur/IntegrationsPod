@@ -1,0 +1,84 @@
+{
+    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+    "widgetName": "Tabs1",
+    "borderColor": "#E0DEDE",
+    "isCanvas": true,
+    "displayName": "Tabs",
+    "iconSVG": "/static/media/icon.74a6d653c8201e66f1cd367a3fba2657.svg",
+    "topRow": 4,
+    "bottomRow": 115,
+    "parentRowSpace": 10,
+    "type": "TABS_WIDGET",
+    "hideCard": false,
+    "shouldScrollContents": true,
+    "animateLoading": true,
+    "parentColumnSpace": 30.0625,
+    "dynamicTriggerPathList": [],
+    "leftColumn": 0,
+    "dynamicBindingPathList": [
+        {"key": "accentColor"},
+        {"key": "borderRadius"},
+        {"key": "boxShadow"}
+    ],
+    "borderWidth": 1,
+    "key": "xth8hi88s9",
+    "backgroundColor": "#FFFFFF",
+    "isDeprecated": false,
+    "rightColumn": 63,
+    "dynamicHeight": "AUTO_HEIGHT",
+    "widgetId": "in2z3bg8g8",
+    "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+    "defaultTab": "Quality",
+    "shouldShowTabs": true,
+    "minWidth": 450,
+    "tabsObj": {
+        "tabbg09rbqeot": {
+            "widgetId": "lwx556oljb",
+            "index": 3,
+            "id": "tabbg09rbqeot",
+            "label": "Cycle Times",
+            "isVisible": true
+        },
+        "tab1": {
+            "widgetId": "cetk7f8948",
+            "positioning": "vertical",
+            "index": 0,
+            "label": "Quality",
+            "id": "tab1",
+            "isVisible": true
+        },
+        "tab1pd8z98ijb": {
+            "widgetId": "83b6ifjr8w",
+            "index": 2,
+            "id": "tab1pd8z98ijb",
+            "label": "Throughput",
+            "isVisible": true
+        },
+        "tab2": {
+            "widgetId": "vj33jep9dq",
+            "positioning": "vertical",
+            "index": 1,
+            "label": "Inventory",
+            "id": "tab2",
+            "isVisible": true
+        },
+        "tab42g0yyfci0": {
+            "widgetId": "n421pqzyiu",
+            "index": 4,
+            "id": "tab42g0yyfci0",
+            "label": "Forecasting",
+            "isVisible": false
+        }
+    },
+    "isVisible": true,
+    "version": 3,
+    "parentId": "0",
+    "renderMode": "CANVAS",
+    "isLoading": false,
+    "responsiveBehavior": "fill",
+    "originalTopRow": 4,
+    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "maxDynamicHeight": 9000,
+    "originalBottomRow": 115,
+    "minDynamicHeight": 15
+}
