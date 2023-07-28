@@ -51,10 +51,17 @@ export default {
 						});
 					
 					var reviewWaitStartTimeLine = changedPipeLineItems.filter(item => item.to === "Needs review");
-					var reviewWaitStartTime = reviewWaitStartTimeLine[reviewWaitStartTimeLine.length-1];
-					//var reviewWaitStartTimeJSON = JSON.parse(JSON.stringify(reviewWaitStartTime));
-					console.log(reviewWaitStartTime);
+					var reviewWaitStartTime = new Date(reviewWaitStartTimeLine[reviewWaitStartTimeLine.length-1]?.timeStamp);
+					var reviewWaitEndTimeLine = changedPipeLineItems.filter(item => item.from === "Needs review");
+					var reviewWaitEndTime = new Date(reviewWaitEndTimeLine[reviewWaitEndTimeLine.length-1]?.timeStamp);
+					var reviewWaitTime = this.getDiff(reviewWaitStartTime, reviewWaitEndTime);
 					
+					
+					var qaWaitStartTimeLine = changedPipeLineItems.filter(item => item.to === "Needs QA");
+					var qaWaitStartTime = new Date(qaWaitStartTimeLine[qaWaitStartTimeLine.length-1]?.timeStamp);
+					var qaWaitEndTimeLine = changedPipeLineItems.filter(item => item.from === "Needs QA");
+					var qaWaitEndTime = new Date(qaWaitEndTimeLine[qaWaitEndTimeLine.length-1]?.timeStamp);
+					var qaWaitTime = this.getDiff(qaWaitStartTime, qaWaitEndTime);
 					
 					cycleTimes.push({
 						"title":data[i].title,
@@ -63,6 +70,8 @@ export default {
 						"closedAt":data[i].closedAt,
 						"cycleTime":this.getDiff(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
 						"assignee": data[i].assignees.nodes.length > 0 ? data[i].assignees.nodes[0].name : "No Assignee",
+						"reviewWaitTime":reviewWaitTime,
+						"qaWaitTime":qaWaitTime,
 						"timelineItems": changedPipeLineItems
 					});
 				}

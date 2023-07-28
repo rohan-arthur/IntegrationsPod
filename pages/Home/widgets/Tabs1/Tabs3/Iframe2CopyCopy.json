@@ -29,7 +29,7 @@
     "parentId": "oabg0t5xwq",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 10,
+    "originalTopRow": 9,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "originalBottomRow": 49
+    "originalBottomRow": 67
 }
