@@ -3,7 +3,10 @@
     "widgetName": "StartDate",
     "minDate": "2022-09-01T00:00:00.000+05:30",
     "dateFormat": "YYYY-MM-DD HH:mm",
-    "dynamicPropertyPathList": [{"key": "maxDate"}],
+    "dynamicPropertyPathList": [
+        {"key": "maxDate"},
+        {"key": "defaultDate"}
+    ],
     "iconSVG": "/static/media/icon.300e5ab8e2e1c26c7a0bad06116842b7.svg",
     "displayName": "DatePicker",
     "topRow": 1,
@@ -21,14 +24,15 @@
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
-        {"key": "maxDate"}
+        {"key": "maxDate"},
+        {"key": "defaultDate"}
     ],
     "labelPosition": "Top",
     "isDisabled": false,
     "key": "pfjdp9x92r",
     "labelTextSize": "0.875rem",
     "isRequired": true,
-    "defaultDate": "2023-02-01T14:44:07.077+05:30",
+    "defaultDate": "{{moment().subtract('months', 1)}}",
     "isDeprecated": false,
     "rightColumn": 8,
     "dynamicHeight": "FIXED",

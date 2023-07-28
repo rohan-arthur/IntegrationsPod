@@ -25,16 +25,16 @@
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
-        {"key": "defaultDate"},
         {"key": "maxDate"},
-        {"key": "minDate"}
+        {"key": "minDate"},
+        {"key": "defaultDate"}
     ],
     "labelPosition": "Top",
     "isDisabled": false,
     "key": "pfjdp9x92r",
     "labelTextSize": "0.875rem",
     "isRequired": true,
-    "defaultDate": "{{new Date()}}",
+    "defaultDate": "{{moment().subtract('days', 1)}}",
     "isDeprecated": false,
     "rightColumn": 16,
     "dynamicHeight": "FIXED",

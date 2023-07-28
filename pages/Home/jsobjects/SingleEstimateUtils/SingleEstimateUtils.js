@@ -39,14 +39,8 @@ export default {
 			for(var j=0; j<changedPipeLineItemsToProgress.length; j++){
 				if(new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
 					issuesForEstimate.push(data[i]);
-					cycleTimes.push({
-						"title":data[i].title,
-						"number":data[i].number,
-						"startedAt":changedPipeLineItemsToProgress[j].updatedAt,
-						"closedAt":data[i].closedAt,
-						"cycleTime":this.getDiff(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
-						"assignee": data[i].assignees.nodes.length > 0 ? data[i].assignees.nodes[0].name : "No Assignee",
-						"timelineItems": podChangedPipeLineItems.map(item => {
+					
+					var changedPipeLineItems = podChangedPipeLineItems.map(item => {
 							return {
 								"id": item.updatedAt,
 								"from": item.data.from_pipeline.name,
@@ -54,7 +48,22 @@ export default {
 								"timeStamp": (new Date(item.updatedAt)).toDateString(),
 								"by": item.data.github_user.login 
 							}
-						})
+						});
+					
+					var reviewWaitStartTimeLine = changedPipeLineItems.filter(item => item.to === "Needs review");
+					var reviewWaitStartTime = reviewWaitStartTimeLine[reviewWaitStartTimeLine.length-1];
+					//var reviewWaitStartTimeJSON = JSON.parse(JSON.stringify(reviewWaitStartTime));
+					console.log(reviewWaitStartTime);
+					
+					
+					cycleTimes.push({
+						"title":data[i].title,
+						"number":data[i].number,
+						"startedAt":changedPipeLineItemsToProgress[j].updatedAt,
+						"closedAt":data[i].closedAt,
+						"cycleTime":this.getDiff(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
+						"assignee": data[i].assignees.nodes.length > 0 ? data[i].assignees.nodes[0].name : "No Assignee",
+						"timelineItems": changedPipeLineItems
 					});
 				}
 			}
