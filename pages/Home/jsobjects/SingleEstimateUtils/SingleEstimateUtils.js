@@ -14,7 +14,7 @@ export default {
 		let cycleTimes = [];
 		let issuesForEstimate = [];
 		var data = GetCycle_onSelection.data.data.searchClosedIssues.nodes;
-
+		console.log(data);
 		/*
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;

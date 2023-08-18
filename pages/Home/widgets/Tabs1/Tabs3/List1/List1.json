@@ -74,7 +74,7 @@
     "itemBackgroundColor": "#FFFFFF",
     "widgetId": "7q3de6bd5t",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-    "onItemClick": "{{SingleEstimateUtils.getStats().then(SingleEstimateUtils.getInternalCycleTimes())}}",
+    "onItemClick": "{{SingleEstimateUtils.getStats()}}",
     "isVisible": true,
     "parentId": "xknzbq9o06",
     "hasMetaWidgets": true,
