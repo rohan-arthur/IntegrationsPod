@@ -3,6 +3,10 @@
     {
       "id": "Home",
       "isDefault": true
+    },
+    {
+      "id": "Flow Efficiency",
+      "isDefault": false
     }
   ],
   "viewMode": false,
