@@ -221,6 +221,7 @@
     "rightColumn": 38,
     "textSize": "0.875rem",
     "widgetId": "48nqihvln9",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{EndToEndCycleTimesTable.selectedRow.timelineItems}}",
     "label": "Data",

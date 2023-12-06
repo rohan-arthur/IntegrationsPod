@@ -42,8 +42,7 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-06-14T07:58:00Z"
+    "userPermissions": []
   },
   "id": "Home_get_all_notes",
   "deleted": false,

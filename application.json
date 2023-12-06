@@ -11,7 +11,11 @@
   "clonedFromApplicationId": "6405e2ae47e5fd1a6c75394a",
   "color": "#C2DAF0",
   "icon": "money",
-  "unpublishedCustomJSLibs": [],
+  "unpublishedCustomJSLibs": [
+    {
+      "uidString": "xmlParser_https://cdnjs.cloudflare.com/ajax/libs/fast-xml-parser/3.17.5/parser.min.js"
+    }
+  ],
   "publishedCustomJSLibs": [],
   "evaluationVersion": 2,
   "applicationVersion": 2,

@@ -319,6 +319,7 @@
     "rightColumn": 62,
     "textSize": "0.875rem",
     "widgetId": "aphys3knpg",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{appsmith.store.issueBottlenecks}}",
     "label": "Data",

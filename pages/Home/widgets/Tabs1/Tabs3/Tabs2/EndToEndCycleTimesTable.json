@@ -452,6 +452,7 @@
     "rightColumn": 63,
     "textSize": "0.875rem",
     "widgetId": "why8bg3hz6",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{appsmith.store.statsForEstimate}}",
     "label": "Data",

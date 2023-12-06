@@ -191,6 +191,7 @@
     "rightColumn": 30,
     "textSize": "0.875rem",
     "widgetId": "2hfuvo3ev3",
+    "enableServerSideFiltering": false,
     "minWidth": 450,
     "tableData": "{{get_all_notes.data}}",
     "label": "Data",
