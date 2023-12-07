@@ -95,7 +95,7 @@ export default {
 						"number":data[i].number,
 						"startedAt":timelineItems[j].updatedAt,
 						"closedAt":data[i].closedAt,
-						"cycleTime":this.getDiff(new Date(timelineItems[j].updatedAt),new Date(data[i].closedAt))
+						"cycleTime":this.getDiffWorkdays(new Date(timelineItems[j].updatedAt),new Date(data[i].closedAt))
 					}
 												 );
 				}
@@ -117,5 +117,26 @@ export default {
 	getDiff: (startDate, endDate) =>{
 		const diffTime = Math.abs(endDate - startDate);
 		return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+	},
+
+	getDiffWorkdays: (startDate, endDate) =>{
+		// Copy the start date for manipulation
+		const currentDate = startDate;
+		let count = 0;
+
+		// Loop through each day between the start and end dates
+		while (currentDate <= endDate) {
+			const dayOfWeek = currentDate.getDay();
+
+			// Check if the current day is not Saturday (6) or Sunday (0)
+			if (dayOfWeek !== 6 && dayOfWeek !== 0) {
+				count++;
+			}
+
+			// Move to the next day
+			currentDate.setDate(currentDate.getDate() + 1);
+		}
+
+		return count;
 	}
 }
