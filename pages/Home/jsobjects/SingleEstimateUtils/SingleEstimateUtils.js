@@ -15,22 +15,7 @@ export default {
 		let issuesForEstimate = [];
 		var data = GetCycle_onSelection.data.data.searchClosedIssues.nodes;
 		console.log(data);
-		/*
-		for(var i=0; i<data.length; i++){
-			var timelineItems = data[i].timelineItems.nodes;
-			for(var j=0; j<timelineItems.length; j++){
-				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
-					issuesForEstimate.push(data[i]);
-					cycleTimes.push({
-						"number":data[i].number,
-						"startedAt":timelineItems[j].updatedAt,
-						"closedAt":data[i].closedAt,
-						"cycleTime":this.getDiff(new Date(timelineItems[j].updatedAt),new Date(data[i].closedAt))
-					}
-												 );
-				}
-			}
-		}*/
+		
 		
 		for(var i=0; i<data.length; i++){
 			var allChangePipelineItems = data[i].timelineItems.nodes.filter(item => item.key === "issue.change_pipeline");
@@ -54,21 +39,21 @@ export default {
 					var reviewWaitStartTime = new Date(reviewWaitStartTimeLine[reviewWaitStartTimeLine.length-1]?.timeStamp);
 					var reviewWaitEndTimeLine = changedPipeLineItems.filter(item => item.from === "Needs review");
 					var reviewWaitEndTime = new Date(reviewWaitEndTimeLine[reviewWaitEndTimeLine.length-1]?.timeStamp);
-					var reviewWaitTime = this.getDiff(reviewWaitStartTime, reviewWaitEndTime);
+					var reviewWaitTime = this.getDiffWorkdays(reviewWaitStartTime, reviewWaitEndTime);
 					
 					
 					var qaWaitStartTimeLine = changedPipeLineItems.filter(item => item.to === "Needs QA");
 					var qaWaitStartTime = new Date(qaWaitStartTimeLine[qaWaitStartTimeLine.length-1]?.timeStamp);
 					var qaWaitEndTimeLine = changedPipeLineItems.filter(item => item.from === "Needs QA");
 					var qaWaitEndTime = new Date(qaWaitEndTimeLine[qaWaitEndTimeLine.length-1]?.timeStamp);
-					var qaWaitTime = this.getDiff(qaWaitStartTime, qaWaitEndTime);
+					var qaWaitTime = this.getDiffWorkdays(qaWaitStartTime, qaWaitEndTime);
 					
 					cycleTimes.push({
 						"title":data[i].title,
 						"number":data[i].number,
 						"startedAt":changedPipeLineItemsToProgress[j].updatedAt,
 						"closedAt":data[i].closedAt,
-						"cycleTime":this.getDiff(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
+						"cycleTime":this.getDiffWorkdays(new Date(changedPipeLineItemsToProgress[j].updatedAt),new Date(data[i].closedAt)),
 						"assignee": data[i].assignees.nodes.length > 0 ? data[i].assignees.nodes[0].name : "No Assignee",
 						"reviewWaitTime":reviewWaitTime,
 						"qaWaitTime":qaWaitTime,
@@ -107,6 +92,27 @@ export default {
 			const diffTime = Math.abs(endDate - startDate);
 			return Math.ceil(diffTime / (1000 * 60 * 60 * 24));			
 		}
+	},
+	
+	getDiffWorkdays: (startDate, endDate) =>{
+		// Copy the start date for manipulation
+		const currentDate = startDate;
+		let count = 0;
+
+		// Loop through each day between the start and end dates
+		while (currentDate <= endDate) {
+			const dayOfWeek = currentDate.getDay();
+
+			// Check if the current day is not Saturday (6) or Sunday (0)
+			if (dayOfWeek !== 6 && dayOfWeek !== 0) {
+				count++;
+			}
+
+			// Move to the next day
+			currentDate.setDate(currentDate.getDate() + 1);
+		}
+
+		return count;
 	},
 
 
@@ -232,11 +238,11 @@ export default {
 				{
 					"number":filteredTimelines[k].number,
 					"closedAt":new Date(filteredTimelines[k].closedAt),
-					"inProgressTime":(inProgressStart?.updatedAt && codeReviewStart?.updatedAt) ? this.getDiff(new Date(inProgressStart?.updatedAt),new Date(codeReviewStart?.updatedAt)) : 0,
-					"codeReviewTime":(codeReviewStart?.updatedAt && needsQAStart?.updatedAt) ? this.getDiff(new Date(codeReviewStart?.updatedAt), new Date(needsQAStart?.updatedAt)) : 0, 
-					"qaQueueTime":(needsQAStart?.updatedAt && qaInProgressStart?.updatedAt) ? this.getDiff(new Date(needsQAStart?.updatedAt),new Date(qaInProgressStart?.updatedAt)) : 0,
-					"qaTime":(qaInProgressStart?.updatedAt && qaDoneStart?.updatedAt) ? this.getDiff(new Date(qaInProgressStart?.updatedAt),new Date(qaDoneStart?.updatedAt)) : 0,
-					"mergeTime":(qaDoneStart?.updatedAt && qaDoneClose?.updatedAt) ? this.getDiff(new Date(qaDoneStart?.updatedAt),new Date(qaDoneClose?.updatedAt)) : 0
+					"inProgressTime":(inProgressStart?.updatedAt && codeReviewStart?.updatedAt) ? this.getDiffWorkdays(new Date(inProgressStart?.updatedAt),new Date(codeReviewStart?.updatedAt)) : 0,
+					"codeReviewTime":(codeReviewStart?.updatedAt && needsQAStart?.updatedAt) ? this.getDiffWorkdays(new Date(codeReviewStart?.updatedAt), new Date(needsQAStart?.updatedAt)) : 0, 
+					"qaQueueTime":(needsQAStart?.updatedAt && qaInProgressStart?.updatedAt) ? this.getDiffWorkdays(new Date(needsQAStart?.updatedAt),new Date(qaInProgressStart?.updatedAt)) : 0,
+					"qaTime":(qaInProgressStart?.updatedAt && qaDoneStart?.updatedAt) ? this.getDiffWorkdays(new Date(qaInProgressStart?.updatedAt),new Date(qaDoneStart?.updatedAt)) : 0,
+					"mergeTime":(qaDoneStart?.updatedAt && qaDoneClose?.updatedAt) ? this.getDiffWorkdays(new Date(qaDoneStart?.updatedAt),new Date(qaDoneClose?.updatedAt)) : 0
 				}
 			)
 		}
