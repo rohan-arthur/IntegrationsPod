@@ -9,8 +9,8 @@
         "input",
         "rte"
     ],
-    "topRow": 10,
-    "bottomRow": 33,
+    "topRow": 12,
+    "bottomRow": 35,
     "parentRowSpace": 10,
     "labelWidth": 5,
     "type": "RICH_TEXT_EDITOR_WIDGET",
