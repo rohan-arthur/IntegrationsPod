@@ -1,0 +1,17 @@
+query {
+  search(query: {{this.params.query}}, type: ISSUE, first: 100) {
+    edges {
+      node {
+        ... on PullRequest {
+          title
+          number
+          closedAt
+          mergedAt
+					author {
+            login
+          }
+        }
+      }
+    }
+  }
+}
