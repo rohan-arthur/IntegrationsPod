@@ -39,7 +39,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-03-23T10:15:45Z"
   },
   "id": "Home_CycleTimeUtils.doCalculations",
   "deleted": false,

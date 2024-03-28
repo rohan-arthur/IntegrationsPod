@@ -59,7 +59,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-03-15T04:53:58Z"
   },
   "id": "Home_GetCycle_onSelection",
   "deleted": false,

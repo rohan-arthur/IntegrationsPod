@@ -52,7 +52,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-04-13T10:12:23Z"
   },
   "id": "Home_GetCycleTimesCopy",
   "deleted": false,

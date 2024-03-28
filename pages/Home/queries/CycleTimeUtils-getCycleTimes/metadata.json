@@ -35,7 +35,8 @@
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-03-14T11:04:41Z"
   },
   "id": "Home_CycleTimeUtils.getCycleTimes",
   "deleted": false,

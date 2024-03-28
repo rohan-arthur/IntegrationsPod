@@ -52,7 +52,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-05-10T08:47:38Z"
   },
   "id": "Home_GetMediumIssues",
   "deleted": false,

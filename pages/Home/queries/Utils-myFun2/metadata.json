@@ -36,7 +36,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-03-15T12:29:48Z"
   },
   "id": "Home_Utils.myFun2",
   "deleted": false,

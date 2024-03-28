@@ -41,7 +41,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-07T06:39:37Z"
   },
   "id": "Home_CycleTimeUtils.getDiffWorkdays",
   "deleted": false,

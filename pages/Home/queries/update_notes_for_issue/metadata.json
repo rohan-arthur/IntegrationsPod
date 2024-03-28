@@ -43,7 +43,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-06-02T10:39:48Z"
   },
   "id": "Home_update_notes_for_issue",
   "deleted": false,
