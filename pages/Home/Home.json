@@ -58,8 +58,8 @@
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [
-                "moment(NotesEndDate.formattedDate).format()",
-                "moment(NotesStartDate.formattedDate).format()"
+                "moment(NotesStartDate.formattedDate).format()",
+                "moment(NotesEndDate.formattedDate).format()"
               ],
               "timeoutInMillisecond": 10000
             }
