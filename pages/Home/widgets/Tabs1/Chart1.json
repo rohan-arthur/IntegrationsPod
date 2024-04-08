@@ -45,7 +45,7 @@
         {"key": "accentColor"},
         {"key": "fontFamily"}
     ],
-    "leftColumn": 30,
+    "leftColumn": 32,
     "customFusionChartConfig": {
         "type": "column2d",
         "dataSource": {
@@ -98,7 +98,7 @@
     "showDataPointLabel": false,
     "key": "fqclckzbb7",
     "isDeprecated": false,
-    "rightColumn": 61,
+    "rightColumn": 63,
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "widgetId": "zwseg2rp93",
     "minWidth": 450,
