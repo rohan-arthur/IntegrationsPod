@@ -32,7 +32,7 @@
     "key": "pfjdp9x92r",
     "labelTextSize": "0.875rem",
     "isRequired": true,
-    "defaultDate": "{{moment().subtract('months', 1)}}",
+    "defaultDate": "{{moment().subtract('months', 3)}}",
     "isDeprecated": false,
     "rightColumn": 8,
     "dynamicHeight": "FIXED",
