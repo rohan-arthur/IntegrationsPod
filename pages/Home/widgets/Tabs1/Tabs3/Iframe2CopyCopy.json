@@ -4,10 +4,10 @@
     "displayName": "Iframe",
     "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
     "searchTags": ["embed"],
-    "topRow": 14,
-    "bottomRow": 72,
+    "topRow": 10,
+    "bottomRow": 68,
     "parentRowSpace": 10,
-    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1033489449&format=interactive",
+    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=666506369&format=interactive",
     "type": "IFRAME_WIDGET",
     "hideCard": false,
     "borderOpacity": 100,
@@ -29,7 +29,7 @@
     "parentId": "oabg0t5xwq",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 9,
+    "originalTopRow": 14,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "originalBottomRow": 67
+    "originalBottomRow": 72
 }
