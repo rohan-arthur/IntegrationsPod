@@ -120,7 +120,7 @@ export default {
 						padding: 0,
 						fontWeight: 'bold',
 						fontSize: 15
-					}
+					} 
 				}
 			],
 			series: [
