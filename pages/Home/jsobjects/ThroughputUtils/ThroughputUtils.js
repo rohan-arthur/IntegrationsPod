@@ -64,58 +64,74 @@ export default {
 	},
 	async formatTotalsChartData(){
 		const inputData = await this.getPRsForMembers();
-    // Transform data for the graph
-    const totalsChartData = {
-        dataset: {
-            source: [
-                ["Week", "Total Closed PRs"],
-                ...inputData.map(entry => [entry.week, ((entry.rishabhrathod01 || 0) + (entry.sumitsum || 0) + (entry.NilanshBansal || 0) + (entry.AmanAgarwal041 || 0) + (entry.sneha122 || 0))])							
-            ]
-        },
-        tooltip: {
-            trigger: "axis",
-            axisPointer: {
-                type: "shadow"
-            }
-        },
-        title: {
-            text: "Total Closed PRs per Week",
-            left: "center",
-            textStyle: {
-                width: 200,
-                overflow: "truncate"
-            }
-        },
-        legend: {
-            top: 40,
-            type: "scroll"
-        },
-        grid: {
-            left: 15,
-            right: 15,
-            bottom: 30,
-            top: 100,
-            containLabel: true
-        },
-        xAxis: [
-            {
-                type: "category"
-            }
-        ],
-        yAxis: [
-            {
-                type: "value"
-            }
-        ],
-        series: [
-            {
-                type: "bar",
-                name: "Total Closed PRs",
-                data: inputData.map(entry => (entry.rishabhrathod01 || 0) + (entry.sumitsum || 0) + (entry.NilanshBansal || 0) + (entry.AmanAgarwal041 || 0) + (entry.sneha122 || 0))
-            }
-        ]
-    };
-    storeValue('totalsChartData', totalsChartData);
-    return totalsChartData;
+		// Transform data for the graph
+		const totalsChartData = {
+			dataset: {
+				source: [
+					["Week", "Total Closed PRs"],
+					...inputData.map(entry => [entry.week, ((entry.rishabhrathod01 || 0) + (entry.sumitsum || 0) + (entry.NilanshBansal || 0) + (entry.AmanAgarwal041 || 0) + (entry.sneha122 || 0))])							
+				]
+			},
+			tooltip: {
+				trigger: "axis",
+				axisPointer: {
+					type: "shadow"
+				}
+			},
+			title: {
+				text: "Total Closed PRs per Week",
+				left: "center",
+				textStyle: {
+					width: 200,
+					overflow: "truncate"
+				}
+			},
+			legend: {
+				top: 40,
+				type: "scroll"
+			},
+			grid: {
+				left: 15,
+				right: 15,
+				bottom: 30,
+				top: 100,
+				containLabel: true
+			},
+			xAxis: [
+				{
+					type: "category",
+					name: 'weeks',
+					nameLocation: 'middle',
+					nameGap: 25,
+					nameTextStyle: {
+						padding: 0,
+						fontWeight: 'bold',
+						fontSize: 15
+					}
+				}
+			],
+			yAxis: [
+				{
+					type: "value",
+					name: 'PRs',
+					nameLocation: 'middle',
+					nameGap: 25,
+					nameTextStyle: {
+						padding: 0,
+						fontWeight: 'bold',
+						fontSize: 15
+					}
+				}
+			],
+			series: [
+				{
+					type: "bar",
+					name: "Total Closed PRs",
+					data: inputData.map(entry => (entry.rishabhrathod01 || 0) + (entry.sumitsum || 0) + (entry.NilanshBansal || 0) + (entry.AmanAgarwal041 || 0) + (entry.sneha122 || 0))
+				}
+			]
+		};
+		storeValue('totalsChartData', totalsChartData);
+		return totalsChartData;
 	}
 }
