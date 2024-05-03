@@ -55,7 +55,7 @@
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "columnUpdatedAt": 1686729162347,
-    "originalBottomRow": 168,
+    "originalBottomRow": 165,
     "defaultSelectedRowIndices": [0],
     "mobileBottomRow": 123,
     "widgetName": "IssueTimelineItems",
@@ -232,7 +232,7 @@
     "horizontalAlignment": "LEFT",
     "isVisibleSearch": true,
     "responsiveBehavior": "fill",
-    "originalTopRow": 106,
+    "originalTopRow": 103,
     "mobileLeftColumn": 0,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"

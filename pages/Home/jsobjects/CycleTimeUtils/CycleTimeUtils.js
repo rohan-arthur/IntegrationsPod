@@ -38,8 +38,8 @@ export default {
 		var stats = [];
 		var globalCycleTimes = [];
 		for(var i=0; i<estimates.length; i++){
-			var cycleTimesData = await GetCycleTimes.run({estimate: estimates[i]});
-			var data = await this.getCycleTimes();
+			
+			var data = await this.getCycleTimes(estimates);
 			var cycleTimes = data.map(item => item.cycleTime);
 
 			globalCycleTimes.push({"estimate":estimates[i],"durations":cycleTimes});
@@ -81,9 +81,10 @@ export default {
 
 		return { "mean": mean, "median": median, "stdDev": standardDeviation, "minimum":minimum, "maximum":maximum };
 	},
-	getCycleTimes: async () => {
+	getCycleTimes: async (estimates) => {
 		let cycleTimes = [];
-		var data = GetCycleTimes.data.data.searchClosedIssues.nodes;
+		const responseData = await GetCycleTimes.run({estimate: estimates[i]});
+		var data = responseData.data.data.searchClosedIssues.nodes;
 
 
 

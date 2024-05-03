@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getCycleTimes",
-    "fullyQualifiedName": "CycleTimeUtils.getCycleTimes",
+    "name": "displayFiniteNumberOrNil",
+    "fullyQualifiedName": "Utils.displayFiniteNumberOrNil",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Home",
-    "collectionId": "Home_CycleTimeUtils",
+    "collectionId": "Home_Utils",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -22,12 +22,11 @@
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {
-          "name": "estimates"
+          "name": "number"
         }
-      ],
-      "isAsync": true
+      ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -36,13 +35,13 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-03-14T11:04:41Z"
+    "createdAt": "2024-05-03T12:09:57Z"
   },
-  "id": "Home_CycleTimeUtils.getCycleTimes",
+  "id": "Home_Utils.displayFiniteNumberOrNil",
   "deleted": false,
-  "gitSyncId": "64100de2d67ea94e3d96ff5d_641054c9fc5c91191c54986d"
+  "gitSyncId": "64100de2d67ea94e3d96ff5d_cd3ed82f-b76e-4b9a-aa40-42cf228a52f4"
 }

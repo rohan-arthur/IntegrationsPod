@@ -1,6 +1,7 @@
 {
     "boxShadow": "none",
     "widgetName": "Text5",
+    "dynamicPropertyPathList": [{"key": "fontSize"}],
     "displayName": "Text",
     "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
     "searchTags": [
@@ -8,8 +9,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 6,
-    "bottomRow": 10,
+    "topRow": 4,
+    "bottomRow": 8,
     "type": "TEXT_WIDGET",
     "hideCard": false,
     "animateLoading": true,
@@ -28,7 +29,7 @@
     "text": "Median: {{currentItem.median.toPrecision(3)}}",
     "key": "7viwzwo6de",
     "isDeprecated": false,
-    "rightColumn": 32,
+    "rightColumn": 43,
     "textAlign": "LEFT",
     "dynamicHeight": "FIXED",
     "widgetId": "n2vjxau9f0",
@@ -43,7 +44,7 @@
     "responsiveBehavior": "fill",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
-    "fontSize": "1rem",
+    "fontSize": "0.775rem",
     "textStyle": "BODY",
     "minDynamicHeight": 4
 }

@@ -5,8 +5,8 @@
     "displayName": "Iframe",
     "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
     "searchTags": ["embed"],
-    "topRow": 46,
-    "bottomRow": 88,
+    "topRow": 41,
+    "bottomRow": 80,
     "parentRowSpace": 10,
     "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1651766494&format=interactive",
     "type": "IFRAME_WIDGET",
@@ -16,7 +16,7 @@
     "animateLoading": true,
     "parentColumnSpace": 30.03125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 35,
+    "leftColumn": 33,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
         {"key": "boxShadow"}
@@ -24,7 +24,7 @@
     "borderWidth": 1,
     "key": "njjixe5bhh",
     "isDeprecated": false,
-    "rightColumn": 57,
+    "rightColumn": 63,
     "widgetId": "ggt4yhavri",
     "isVisible": true,
     "version": 1,

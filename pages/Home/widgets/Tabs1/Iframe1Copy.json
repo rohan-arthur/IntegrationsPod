@@ -5,7 +5,7 @@
     "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
     "searchTags": ["embed"],
     "topRow": 1,
-    "bottomRow": 44,
+    "bottomRow": 40,
     "parentRowSpace": 10,
     "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=250785414&format=interactive",
     "type": "IFRAME_WIDGET",
@@ -14,7 +14,7 @@
     "animateLoading": true,
     "parentColumnSpace": 29.75,
     "dynamicTriggerPathList": [],
-    "leftColumn": 35,
+    "leftColumn": 33,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
         {"key": "boxShadow"}
@@ -22,7 +22,7 @@
     "borderWidth": 1,
     "key": "ecyw3yt677",
     "isDeprecated": false,
-    "rightColumn": 57,
+    "rightColumn": 63,
     "widgetId": "exc5jp723s",
     "isVisible": true,
     "version": 1,

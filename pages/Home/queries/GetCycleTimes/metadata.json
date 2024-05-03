@@ -56,7 +56,7 @@
     "jsonPathKeys": [
       "this.params.estimate"
     ],
-    "userSetOnLoad": false,
+    "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
