@@ -34,19 +34,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async estimates => {\n  let cycleTimes = [];\n  const responseData = await GetCycleTimes.run({\n    estimate: estimates[i]\n  });\n  var data = responseData.data.data.searchClosedIssues.nodes;\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j].key === \"issue.change_pipeline\" && timelineItems[j].data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiffWorkdays(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {\n    if (!acc[curr.number] || acc[curr.number].cycleTime > curr.cycleTime) {\n      acc[curr.number] = curr;\n    }\n    return acc;\n  }, {}));\n  return unduplicatedCycleTimes;\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Home_CycleTimeUtils.getStats",
-              "name": "CycleTimeUtils.getStats",
-              "collectionId": "Home_CycleTimeUtils",
-              "clientSideExecution": true,
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  let estimates = [0.2, 0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  var globalCycleTimes = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var data = await CycleTimeUtils.getCycleTimes(estimates);\n    var cycleTimes = data.map(item => item.cycleTime);\n    globalCycleTimes.push({\n      \"estimate\": estimates[i],\n      \"durations\": cycleTimes\n    });\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev,\n      \"minimum\": calculations.minimum,\n      \"maximum\": calculations.maximum\n    });\n  }\n  await storeValue('globalCycleTimes', globalCycleTimes);\n  await storeValue('stats', stats);\n  return globalCycleTimes;\n}"
+                "async () => {\n  let cycleTimes = [];\n  const responseData = await GetCycleTimes.run({\n    estimate: List1.selectedItem.estimate\n  });\n  var data = responseData.data.searchClosedIssues.nodes;\n  for (var i = 0; i < data.length; i++) {\n    var timelineItems = data[i].timelineItems.nodes;\n    console.log(\"timelineItems\", timelineItems);\n    for (var j = 0; j < timelineItems.length; j++) {\n      if (timelineItems[j]?.key === \"issue.change_pipeline\" && timelineItems[j]?.data.to_pipeline.name === \"In Progress\" && timelineItems[j].data.workspace.name === \"Data Integration Pod\" && new Date(data[i].closedAt) >= new Date(StartDate.selectedDate) && new Date(data[i].closedAt) <= new Date(EndDate.selectedDate)) {\n        cycleTimes.push({\n          \"number\": data[i].number,\n          \"startedAt\": timelineItems[j].updatedAt,\n          \"closedAt\": data[i].closedAt,\n          \"cycleTime\": CycleTimeUtils.getDiffWorkdays(new Date(timelineItems[j].updatedAt), new Date(data[i].closedAt))\n        });\n      }\n    }\n  }\n  const unduplicatedCycleTimes = Object.values(cycleTimes.reduce((acc, curr) => {\n    if (!acc[curr.number] || acc[curr.number].cycleTime > curr.cycleTime) {\n      acc[curr.number] = curr;\n    }\n    return acc;\n  }, {}));\n  return unduplicatedCycleTimes;\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -98,6 +86,18 @@
             }
           ],
           [
+            {
+              "id": "Home_CycleTimeUtils.getStats",
+              "name": "CycleTimeUtils.getStats",
+              "collectionId": "Home_CycleTimeUtils",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  let estimates = [0.2, 0.5, 1, 2, 3, 5, 8];\n  var stats = [];\n  var globalCycleTimes = [];\n  for (var i = 0; i < estimates.length; i++) {\n    var data = await CycleTimeUtils.getCycleTimes(estimates);\n    var cycleTimes = data.map(item => item.cycleTime);\n    globalCycleTimes.push({\n      \"estimate\": estimates[i],\n      \"durations\": cycleTimes\n    });\n    var calculations = await CycleTimeUtils.doCalculations(cycleTimes);\n    stats.push({\n      \"estimate\": estimates[i],\n      \"sampleSize\": data.length,\n      \"mean\": calculations.mean,\n      \"median\": calculations.median,\n      \"stdDev\": calculations.stdDev,\n      \"minimum\": calculations.minimum,\n      \"maximum\": calculations.maximum\n    });\n  }\n  await storeValue('globalCycleTimes', globalCycleTimes);\n  await storeValue('stats', stats);\n  return globalCycleTimes;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
             {
               "id": "Home_ThroughputUtils.formatTotalsChartData",
               "name": "ThroughputUtils.formatTotalsChartData",
