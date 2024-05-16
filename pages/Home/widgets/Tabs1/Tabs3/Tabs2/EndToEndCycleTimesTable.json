@@ -3,7 +3,7 @@
     "borderColor": "#E0DEDE",
     "isVisibleDownload": true,
     "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-    "topRow": 5,
+    "topRow": 4,
     "isSortable": true,
     "type": "TABLE_WIDGET_V2",
     "inlineEditingSaveOption": "ROW_LEVEL",
@@ -66,7 +66,7 @@
     },
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "columnUpdatedAt": 1690543835851,
-    "originalBottomRow": 80,
+    "originalBottomRow": 81,
     "defaultSelectedRowIndices": [0],
     "widgetName": "EndToEndCycleTimesTable",
     "defaultPageSize": 0,
@@ -88,7 +88,7 @@
         {"key": "tableData"}
     ],
     "displayName": "Table",
-    "bottomRow": 81,
+    "bottomRow": 80,
     "columnWidthMap": {
         "number": 106,
         "task": 245,
@@ -462,7 +462,7 @@
     "horizontalAlignment": "LEFT",
     "isVisibleSearch": true,
     "responsiveBehavior": "fill",
-    "originalTopRow": 4,
+    "originalTopRow": 5,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
 }
