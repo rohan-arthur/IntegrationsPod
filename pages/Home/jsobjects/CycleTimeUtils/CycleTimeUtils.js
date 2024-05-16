@@ -38,8 +38,8 @@ export default {
 		var stats = [];
 		var globalCycleTimes = [];
 		for(var i=0; i<estimates.length; i++){
-			
-			var data = await this.getCycleTimes(estimates);
+			var cycleTimesData = await GetCycleTimes.run({estimate: estimates[i]});
+			var data = await this.getCycleTimes();
 			var cycleTimes = data.map(item => item.cycleTime);
 
 			globalCycleTimes.push({"estimate":estimates[i],"durations":cycleTimes});
@@ -83,15 +83,14 @@ export default {
 	},
 	getCycleTimes: async () => {
 		let cycleTimes = [];
-		const responseData = await GetCycleTimes.run({estimate: List1.selectedItem.estimate });
-		
-		var data = responseData.data.searchClosedIssues.nodes;
+		var data = GetCycleTimes.data.data.searchClosedIssues.nodes;
+
+
 
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;
-			console.log("timelineItems", timelineItems);
 			for(var j=0; j<timelineItems.length; j++){
-				if(timelineItems[j]?.key==="issue.change_pipeline" && timelineItems[j]?.data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
+				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
 					cycleTimes.push({
 						"number":data[i].number,
 						"startedAt":timelineItems[j].updatedAt,
