@@ -2,11 +2,13 @@
     "boxShadow": "none",
     "widgetName": "EndDate",
     "minDate": "{{new Date(StartDate.selectedDate)}}",
-    "dateFormat": "YYYY-MM-DD HH:mm",
+    "dateFormat": "D MMM, YYYY",
     "dynamicPropertyPathList": [
         {"key": "defaultDate"},
         {"key": "maxDate"},
-        {"key": "minDate"}
+        {"key": "minDate"},
+        {"key": "labelTextSize"},
+        {"key": "dateFormat"}
     ],
     "iconSVG": "/static/media/icon.300e5ab8e2e1c26c7a0bad06116842b7.svg",
     "displayName": "DatePicker",

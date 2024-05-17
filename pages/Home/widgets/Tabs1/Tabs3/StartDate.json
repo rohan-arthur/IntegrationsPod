@@ -2,10 +2,11 @@
     "boxShadow": "none",
     "widgetName": "StartDate",
     "minDate": "2022-09-01T00:00:00.000+05:30",
-    "dateFormat": "YYYY-MM-DD HH:mm",
+    "dateFormat": "D MMM, YYYY",
     "dynamicPropertyPathList": [
         {"key": "maxDate"},
-        {"key": "defaultDate"}
+        {"key": "defaultDate"},
+        {"key": "dateFormat"}
     ],
     "iconSVG": "/static/media/icon.300e5ab8e2e1c26c7a0bad06116842b7.svg",
     "displayName": "DatePicker",
