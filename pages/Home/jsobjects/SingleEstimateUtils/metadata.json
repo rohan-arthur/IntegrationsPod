@@ -1,11 +1,11 @@
 {
+  "gitSyncId": "64100de2d67ea94e3d96ff5d_64115dd1fc5c91191c54a54a",
+  "id": "Home_SingleEstimateUtils",
   "unpublishedCollection": {
     "name": "SingleEstimateUtils",
     "pageId": "Home",
     "pluginId": "js-plugin",
     "pluginType": "JS",
-    "actions": [],
-    "archivedActions": [],
     "variables": [
       {
         "name": "myVar1",
@@ -15,10 +15,6 @@
         "name": "myVar2",
         "value": "{}"
       }
-    ],
-    "userPermissions": []
-  },
-  "id": "Home_SingleEstimateUtils",
-  "deleted": false,
-  "gitSyncId": "64100de2d67ea94e3d96ff5d_64115dd1fc5c91191c54a54a"
+    ]
+  }
 }

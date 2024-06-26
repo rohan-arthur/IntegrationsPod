@@ -1,11 +1,11 @@
 {
+  "gitSyncId": "641fa0a82fc69f7a3834534b_641fbc352fc69f7a38345442",
+  "id": "Home_MCSimulationUtils",
   "unpublishedCollection": {
     "name": "MCSimulationUtils",
     "pageId": "Home",
     "pluginId": "js-plugin",
     "pluginType": "JS",
-    "actions": [],
-    "archivedActions": [],
     "variables": [
       {
         "name": "myVar1",
@@ -15,10 +15,6 @@
         "name": "myVar2",
         "value": "{}"
       }
-    ],
-    "userPermissions": []
-  },
-  "id": "Home_MCSimulationUtils",
-  "deleted": false,
-  "gitSyncId": "641fa0a82fc69f7a3834534b_641fbc352fc69f7a38345442"
+    ]
+  }
 }

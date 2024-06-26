@@ -1,40 +1,48 @@
 {
-    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-    "mobileBottomRow": 34,
-    "widgetName": "Iframe1",
-    "displayName": "Iframe",
-    "iconSVG": "https://appcdn.appsmith.com/static/media/icon.a84667dbdc548d14f7c83df551151550.svg",
-    "searchTags": ["embed"],
-    "topRow": 0,
-    "bottomRow": 143,
-    "parentRowSpace": 10,
-    "source": "https://internal.appsmith.com/app/data-insight/flow-efficiency-655c769c44c3196dff1b4b30",
-    "type": "IFRAME_WIDGET",
-    "hideCard": false,
-    "mobileRightColumn": 26,
-    "borderOpacity": 100,
-    "animateLoading": true,
-    "parentColumnSpace": 11.796875,
-    "dynamicTriggerPathList": [],
-    "leftColumn": 0,
-    "dynamicBindingPathList": [
-        {"key": "borderRadius"},
-        {"key": "boxShadow"}
-    ],
-    "borderWidth": 1,
-    "flexVerticalAlignment": "start",
-    "key": "4gg2fzsxbz",
-    "isDeprecated": false,
-    "rightColumn": 63,
-    "widgetId": "zqywkosph3",
-    "isVisible": true,
-    "version": 1,
-    "parentId": "0",
-    "tags": ["Display"],
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "mobileTopRow": 2,
-    "responsiveBehavior": "fill",
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "mobileLeftColumn": 2
+  "animateLoading": true,
+  "borderOpacity": 100,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 143,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "displayName": "Iframe",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "hideCard": false,
+  "iconSVG": "https://appcdn.appsmith.com/static/media/icon.a84667dbdc548d14f7c83df551151550.svg",
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "4gg2fzsxbz",
+  "leftColumn": 0,
+  "mobileBottomRow": 34,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 26,
+  "mobileTopRow": 2,
+  "parentColumnSpace": 11.796875,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "searchTags": [
+    "embed"
+  ],
+  "source": "https://internal.appsmith.com/app/data-insight/flow-efficiency-655c769c44c3196dff1b4b30",
+  "tags": [
+    "Display"
+  ],
+  "topRow": 0,
+  "type": "IFRAME_WIDGET",
+  "version": 1,
+  "widgetId": "zqywkosph3",
+  "widgetName": "Iframe1"
 }

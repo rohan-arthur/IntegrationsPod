@@ -1,68 +1,88 @@
 {
-    "needsErrorInfo": false,
-    "boxShadow": "none",
-    "mobileBottomRow": 4,
-    "widgetName": "ButtonGroup1",
-    "isCanvas": false,
-    "dynamicPropertyPathList": [{"key": "groupButtons.groupButton1.onClick"}],
-    "displayName": "Button Group",
-    "iconSVG": "https://appcdn.appsmith.com/static/media/icon.ae1401b479d77b1908271bdfed6d12ba.svg",
-    "searchTags": [
-        "click",
-        "submit"
-    ],
-    "topRow": 0,
-    "bottomRow": 4,
-    "parentRowSpace": 10,
-    "type": "BUTTON_GROUP_WIDGET",
-    "groupButtons": {"groupButton1": {
-        "onClick": "{{navigateTo('https://www.notion.so/appsmith/Engineering-Metrics-8174c59c9bd5499ab471e34c092a677a', {},'NEW_WINDOW')}}",
-        "buttonType": "SIMPLE",
-        "iconName": "backlink",
-        "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-        "widgetId": "",
-        "menuItems": {},
-        "index": 0,
-        "label": "What we measure and why",
-        "id": "groupButton1",
-        "placement": "START",
-        "isVisible": true,
-        "isDisabled": false
-    }},
-    "hideCard": false,
-    "mobileRightColumn": 42,
-    "animateLoading": true,
-    "parentColumnSpace": 17.9375,
-    "dynamicTriggerPathList": [{"key": "groupButtons.groupButton1.onClick"}],
-    "leftColumn": 0,
-    "dynamicBindingPathList": [
-        {"key": "borderRadius"},
-        {"key": "groupButtons.groupButton1.buttonColor"}
-    ],
-    "key": "prf7jz5fv3",
-    "orientation": "horizontal",
-    "isDeprecated": false,
-    "rightColumn": 13,
-    "thumbnailSVG": "https://appcdn.appsmith.com/static/media/thumbnail.eaa22f923be763e8779a46432554f1ed.svg",
-    "widgetId": "hxxr0uormu",
-    "onCanvasUI": {
-        "focusBGCSSVar": "--ads-widget-focus",
-        "disableParentSelection": false,
-        "focusColorCSSVar": "--ads-widget-selection",
-        "selectionBGCSSVar": "--ads-widget-selection",
-        "selectionColorCSSVar": "--ads-widget-focus"
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonVariant": "TERTIARY",
+  "childStylesheet": {
+    "button": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+    }
+  },
+  "displayName": "Button Group",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
     },
-    "minWidth": 450,
-    "isVisible": true,
-    "version": 1,
-    "parentId": "0",
-    "tags": ["Buttons"],
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "mobileTopRow": 0,
-    "responsiveBehavior": "fill",
-    "childStylesheet": {"button": {"buttonColor": "{{appsmith.theme.colors.primaryColor}}"}},
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "mobileLeftColumn": 18,
-    "buttonVariant": "TERTIARY"
+    {
+      "key": "groupButtons.groupButton1.buttonColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "groupButtons.groupButton1.onClick"
+    }
+  ],
+  "groupButtons": {
+    "groupButton1": {
+      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+      "buttonType": "SIMPLE",
+      "iconName": "backlink",
+      "id": "groupButton1",
+      "index": 0,
+      "isDisabled": false,
+      "isVisible": true,
+      "label": "What we measure and why",
+      "menuItems": {},
+      "onClick": "{{navigateTo('https://www.notion.so/appsmith/Engineering-Metrics-8174c59c9bd5499ab471e34c092a677a', {},'NEW_WINDOW')}}",
+      "placement": "START",
+      "widgetId": ""
+    }
+  },
+  "hideCard": false,
+  "iconSVG": "https://appcdn.appsmith.com/static/media/icon.ae1401b479d77b1908271bdfed6d12ba.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "prf7jz5fv3",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 18,
+  "mobileRightColumn": 42,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--ads-widget-focus",
+    "focusColorCSSVar": "--ads-widget-selection",
+    "selectionBGCSSVar": "--ads-widget-selection",
+    "selectionColorCSSVar": "--ads-widget-focus"
+  },
+  "orientation": "horizontal",
+  "parentColumnSpace": 17.9375,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 13,
+  "searchTags": [
+    "click",
+    "submit"
+  ],
+  "tags": [
+    "Buttons"
+  ],
+  "thumbnailSVG": "https://appcdn.appsmith.com/static/media/thumbnail.eaa22f923be763e8779a46432554f1ed.svg",
+  "topRow": 0,
+  "type": "BUTTON_GROUP_WIDGET",
+  "version": 1,
+  "widgetId": "hxxr0uormu",
+  "widgetName": "ButtonGroup1"
 }

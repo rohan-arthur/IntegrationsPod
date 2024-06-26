@@ -1,44 +1,52 @@
 {
-    "boxShadow": "none",
-    "mobileBottomRow": 5,
-    "widgetName": "IconButton4",
-    "onClick": "{{navigateTo('https://github.com/appsmithorg/appsmith/issues/' + EndToEndCycleTimesTable.triggeredRow.number, {}, 'NEW_WINDOW');}}",
-    "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "displayName": "Icon Button",
-    "iconSVG": "/static/media/icon.1a0c634ac75f9fa6b6ae7a8df882a3ba.svg",
-    "searchTags": [
-        "click",
-        "submit"
-    ],
-    "topRow": 1,
-    "bottomRow": 5,
-    "parentRowSpace": 10,
-    "type": "ICON_BUTTON_WIDGET",
-    "hideCard": false,
-    "mobileRightColumn": 33,
-    "animateLoading": true,
-    "parentColumnSpace": 6.9375,
-    "dynamicTriggerPathList": [{"key": "onClick"}],
-    "leftColumn": 11,
-    "dynamicBindingPathList": [
-        {"key": "buttonColor"},
-        {"key": "borderRadius"}
-    ],
-    "isDisabled": false,
-    "key": "nr5mh5tu7x",
-    "isDeprecated": false,
-    "rightColumn": 15,
-    "iconName": "link",
-    "widgetId": "6xqfkn2fez",
-    "minWidth": 50,
-    "isVisible": true,
-    "version": 1,
-    "parentId": "b09pm25s7h",
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "mobileTopRow": 1,
-    "responsiveBehavior": "hug",
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "mobileLeftColumn": 29,
-    "buttonVariant": "PRIMARY"
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 5,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "displayName": "Icon Button",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "hideCard": false,
+  "iconName": "link",
+  "iconSVG": "/static/media/icon.1a0c634ac75f9fa6b6ae7a8df882a3ba.svg",
+  "isDeprecated": false,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "nr5mh5tu7x",
+  "leftColumn": 11,
+  "minWidth": 50,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 29,
+  "mobileRightColumn": 33,
+  "mobileTopRow": 1,
+  "onClick": "{{navigateTo('https://github.com/appsmithorg/appsmith/issues/' + EndToEndCycleTimesTable.triggeredRow.number, {}, 'NEW_WINDOW');}}",
+  "parentColumnSpace": 6.9375,
+  "parentId": "b09pm25s7h",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 15,
+  "searchTags": [
+    "click",
+    "submit"
+  ],
+  "topRow": 1,
+  "type": "ICON_BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "6xqfkn2fez",
+  "widgetName": "IconButton4"
 }

@@ -1,33 +1,39 @@
 {
-    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-    "widgetName": "Iframe1",
-    "displayName": "Iframe",
-    "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
-    "searchTags": ["embed"],
-    "topRow": 0,
-    "bottomRow": 39,
-    "parentRowSpace": 10,
-    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1607851831&format=interactive",
-    "type": "IFRAME_WIDGET",
-    "hideCard": false,
-    "borderOpacity": 100,
-    "animateLoading": true,
-    "parentColumnSpace": 29.75,
-    "dynamicTriggerPathList": [],
-    "leftColumn": 15,
-    "dynamicBindingPathList": [
-        {"key": "borderRadius"},
-        {"key": "boxShadow"}
-    ],
-    "borderWidth": 1,
-    "key": "ecyw3yt677",
-    "isDeprecated": false,
-    "rightColumn": 47,
-    "widgetId": "bvatpvc3j4",
-    "isVisible": true,
-    "version": 1,
-    "parentId": "cetk7f8948",
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+  "animateLoading": true,
+  "borderOpacity": 100,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 39,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "displayName": "Iframe",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ecyw3yt677",
+  "leftColumn": 15,
+  "parentColumnSpace": 29.75,
+  "parentId": "cetk7f8948",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 47,
+  "searchTags": [
+    "embed"
+  ],
+  "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1607851831&format=interactive",
+  "topRow": 0,
+  "type": "IFRAME_WIDGET",
+  "version": 1,
+  "widgetId": "bvatpvc3j4",
+  "widgetName": "Iframe1"
 }

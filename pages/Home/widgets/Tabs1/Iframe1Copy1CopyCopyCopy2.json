@@ -1,35 +1,41 @@
 {
-    "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-    "widgetName": "Iframe1Copy1CopyCopyCopy2",
-    "displayName": "Iframe",
-    "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
-    "searchTags": ["embed"],
-    "topRow": 40,
-    "bottomRow": 79,
-    "parentRowSpace": 10,
-    "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1588717545&format=interactive",
-    "type": "IFRAME_WIDGET",
-    "hideCard": false,
-    "borderOpacity": 100,
-    "animateLoading": true,
-    "parentColumnSpace": 29.75,
-    "dynamicTriggerPathList": [],
-    "leftColumn": 19,
-    "dynamicBindingPathList": [
-        {"key": "borderRadius"},
-        {"key": "boxShadow"}
-    ],
-    "borderWidth": 1,
-    "key": "ecyw3yt677",
-    "isDeprecated": false,
-    "rightColumn": 52,
-    "widgetId": "3uc9aoo3ur",
-    "isVisible": true,
-    "version": 1,
-    "parentId": "83b6ifjr8w",
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "originalTopRow": 7,
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "originalBottomRow": 49
+  "animateLoading": true,
+  "borderOpacity": 100,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 79,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "displayName": "Iframe",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.34169b6acebc8ace125dd1f638974aae.svg",
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ecyw3yt677",
+  "leftColumn": 19,
+  "originalBottomRow": 49,
+  "originalTopRow": 7,
+  "parentColumnSpace": 29.75,
+  "parentId": "83b6ifjr8w",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 52,
+  "searchTags": [
+    "embed"
+  ],
+  "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbhQkieQ_bCJMew2VZPSmeXbxCYc_6uBDLVNCU-zFIk79KfX9nIxt31I77A0l2mC9ZyQpTW9DMMJdv/pubchart?oid=1588717545&format=interactive",
+  "topRow": 40,
+  "type": "IFRAME_WIDGET",
+  "version": 1,
+  "widgetId": "3uc9aoo3ur",
+  "widgetName": "Iframe1Copy1CopyCopyCopy2"
 }

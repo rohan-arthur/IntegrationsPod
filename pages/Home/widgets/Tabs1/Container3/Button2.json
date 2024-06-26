@@ -1,47 +1,55 @@
 {
-    "resetFormOnClick": false,
-    "boxShadow": "none",
-    "widgetName": "Button2",
-    "onClick": "{{MCSimulationUtils.monteCarloSimulation()}}",
-    "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "displayName": "Button",
-    "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
-    "searchTags": [
-        "click",
-        "submit"
-    ],
-    "topRow": 0,
-    "bottomRow": 4,
-    "parentRowSpace": 10,
-    "type": "BUTTON_WIDGET",
-    "hideCard": false,
-    "animateLoading": true,
-    "parentColumnSpace": 29.2802734375,
-    "dynamicTriggerPathList": [{"key": "onClick"}],
-    "leftColumn": 15,
-    "dynamicBindingPathList": [
-        {"key": "buttonColor"},
-        {"key": "borderRadius"}
-    ],
-    "text": "Run Simulation",
-    "isDisabled": false,
-    "key": "0b104wioj7",
-    "isDeprecated": false,
-    "rightColumn": 21,
-    "isDefaultClickDisabled": true,
-    "widgetId": "2zm8e93tcr",
-    "minWidth": 120,
-    "isVisible": true,
-    "recaptchaType": "V3",
-    "version": 1,
-    "parentId": "71q3in2d61",
-    "renderMode": "CANVAS",
-    "isLoading": false,
-    "responsiveBehavior": "hug",
-    "originalTopRow": 64,
-    "disabledWhenInvalid": false,
-    "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "originalBottomRow": 68,
-    "buttonVariant": "PRIMARY",
-    "placement": "CENTER"
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 4,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "displayName": "Button",
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "hideCard": false,
+  "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
+  "isDefaultClickDisabled": true,
+  "isDeprecated": false,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "0b104wioj7",
+  "leftColumn": 15,
+  "minWidth": 120,
+  "onClick": "{{MCSimulationUtils.monteCarloSimulation()}}",
+  "originalBottomRow": 68,
+  "originalTopRow": 64,
+  "parentColumnSpace": 29.2802734375,
+  "parentId": "71q3in2d61",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 21,
+  "searchTags": [
+    "click",
+    "submit"
+  ],
+  "text": "Run Simulation",
+  "topRow": 0,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "2zm8e93tcr",
+  "widgetName": "Button2"
 }

@@ -1,11 +1,11 @@
 {
+  "gitSyncId": "66056fac8fd5155c4b5d701b_66056fd78fd5155c4b5d704e",
+  "id": "Home_ThroughputUtils",
   "unpublishedCollection": {
     "name": "ThroughputUtils",
     "pageId": "Home",
     "pluginId": "js-plugin",
     "pluginType": "JS",
-    "actions": [],
-    "archivedActions": [],
     "variables": [
       {
         "name": "myVar1",
@@ -15,10 +15,6 @@
         "name": "myVar2",
         "value": "{}"
       }
-    ],
-    "userPermissions": []
-  },
-  "id": "Home_ThroughputUtils",
-  "deleted": false,
-  "gitSyncId": "66056fac8fd5155c4b5d701b_66056fd78fd5155c4b5d704e"
+    ]
+  }
 }
