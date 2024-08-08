@@ -1,0 +1,1 @@
+SELECT * FROM public."test"-with-hyphen LIMIT 10;
