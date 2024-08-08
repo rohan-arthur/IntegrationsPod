@@ -5,11 +5,11 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": 1,
-  "bottomRow": 171,
+  "bottomRow": 48,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
-      "bottomRow": 1670,
+      "bottomRow": 1650,
       "canExtend": true,
       "detachFromLayout": true,
       "displayName": "Canvas",
@@ -41,7 +41,7 @@
       "widgetName": "Canvas13"
     },
     {
-      "bottomRow": 1670,
+      "bottomRow": 440,
       "canExtend": true,
       "detachFromLayout": true,
       "displayName": "Canvas",
@@ -73,7 +73,7 @@
       "widgetName": "Canvas14"
     },
     {
-      "bottomRow": 1670,
+      "bottomRow": 440,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
@@ -108,7 +108,7 @@
       "widgetName": "Canvas15"
     },
     {
-      "bottomRow": 1670,
+      "bottomRow": 810,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
@@ -192,7 +192,7 @@
       "id": "tab1",
       "index": 1,
       "isDuplicateLabel": false,
-      "isVisible": true,
+      "isVisible": false,
       "label": "By Complexity",
       "positioning": "vertical",
       "widgetId": "xknzbq9o06"
