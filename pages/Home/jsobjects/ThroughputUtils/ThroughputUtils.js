@@ -17,19 +17,22 @@ export default {
 		let data = [];
 		for(var i=0; i<members.length; i++){
 			var memberPRs = await GetPRsforAuthor.run({query:"repo:appsmithorg/appsmith is:pr is:closed sort:updated-desc author:"+members[i]});
-			var obj = {};
-			data.push({ name: members[i], PRs: memberPRs })
+			data.push({ name: members[i], PRs: memberPRs });
 		}
+
 		const result = {};
 		const currentDate = new Date();
+		const weeksAgo20 = new Date();
+		weeksAgo20.setDate(currentDate.getDate() - (20 * 7)); // Set the date to 20 weeks ago
+
 		data.forEach(authorData => {
 			const authorName = authorData.name;
 
 			authorData.PRs.data.search.edges.forEach(pr => {
 				const closedDate = new Date(pr.node.closedAt);
 
-				// Check if the closed date is on or after January 1, 2024, and before or equal to the current date
-				if (closedDate >= new Date("2024-01-01T00:00:00Z") && closedDate <= currentDate) {
+				// Filter only the PRs closed in the last 20 weeks
+				if (closedDate >= weeksAgo20 && closedDate <= currentDate) {
 					const weekKey = `${this.getISOWeekNumber(closedDate)}/${closedDate.getUTCFullYear()}`;
 
 					if (!result[weekKey]) {
@@ -51,18 +54,12 @@ export default {
 		});
 
 		// Sort the result array by week in ascending order
-		//resultArray.sort((a, b) => new Date(a.week) - new Date(b.week));
 		resultArray.sort((a, b) => parseInt(a.week.split('/')[0]) - parseInt(b.week.split('/')[0]));
-
-		if (Array.isArray(resultArray) && resultArray.length > 0) {
-			console.log("from home function is array");
-		}else{
-			console.log("from home function is not array");
-		}
 
 		return resultArray;
 	},
-	async formatTotalsChartData(){
+
+	async formatTotalsChartData() {
 		const inputData = await this.getPRsForMembers();
 		// Transform data for the graph
 		const totalsChartData = {

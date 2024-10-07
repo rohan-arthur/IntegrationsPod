@@ -5,11 +5,11 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": 1,
-  "bottomRow": 269,
+  "bottomRow": 175,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
-      "bottomRow": 2600,
+      "bottomRow": 1660,
       "canExtend": true,
       "detachFromLayout": true,
       "displayName": "Canvas",
@@ -41,7 +41,7 @@
       "widgetName": "Canvas1"
     },
     {
-      "bottomRow": 2600,
+      "bottomRow": 1660,
       "canExtend": true,
       "detachFromLayout": true,
       "displayName": "Canvas",
@@ -73,7 +73,7 @@
       "widgetName": "Canvas2"
     },
     {
-      "bottomRow": 2600,
+      "bottomRow": 2210,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
@@ -135,7 +135,7 @@
       "widgetName": "Canvas4"
     },
     {
-      "bottomRow": 2600,
+      "bottomRow": 1660,
       "canExtend": false,
       "containerStyle": "none",
       "detachFromLayout": true,
