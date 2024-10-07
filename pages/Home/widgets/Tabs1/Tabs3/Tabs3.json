@@ -169,7 +169,7 @@
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 15,
   "minWidth": 450,
-  "originalBottomRow": 171,
+  "originalBottomRow": 48,
   "originalTopRow": 0,
   "parentColumnSpace": 17.072662353515625,
   "parentId": "lwx556oljb",
@@ -192,7 +192,7 @@
       "id": "tab1",
       "index": 1,
       "isDuplicateLabel": false,
-      "isVisible": false,
+      "isVisible": true,
       "label": "By Complexity",
       "positioning": "vertical",
       "widgetId": "xknzbq9o06"

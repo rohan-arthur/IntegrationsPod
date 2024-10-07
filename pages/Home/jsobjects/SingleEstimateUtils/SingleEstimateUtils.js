@@ -9,17 +9,17 @@ export default {
 		var cycleTimesData = await GetCycle_onSelection.run({estimate: estimate});
 		var data = await this.getCycleTimes();
 		storeValue('statsForEstimate',data);
+		return data;
 	},
 	getCycleTimes: async () => {
 		let cycleTimes = [];
 		let issuesForEstimate = [];
 		var data = GetCycle_onSelection.data.data.searchClosedIssues.nodes;
-		console.log(data);
 		
 		
 		for(var i=0; i<data.length; i++){
 			var allChangePipelineItems = data[i].timelineItems.nodes.filter(item => item.key === "issue.change_pipeline");
-			var podChangedPipeLineItems = allChangePipelineItems.filter(item => item.data.workspace.name === "Data Integration Pod");
+			var podChangedPipeLineItems = allChangePipelineItems.filter(item => item.data.workspace.name === "Query & JS Pod");
 			var changedPipeLineItemsToProgress = podChangedPipeLineItems.filter(item => item.data.to_pipeline.name === "In Progress");
 			for(var j=0; j<changedPipeLineItemsToProgress.length; j++){
 				if(new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
@@ -129,7 +129,7 @@ export default {
 			});
 
 			const timelineItemsAcrossWorkspaces = data[i].timelineItems.nodes.filter(obj => obj.key === "issue.change_pipeline");
-			const timelineItems = timelineItemsAcrossWorkspaces.filter(obj => obj.data.workspace.name === "Data Integration Pod" );
+			const timelineItems = timelineItemsAcrossWorkspaces.filter(obj => obj.data.workspace.name === "Query & JS Pod" );
 
 			for(let j=0;j< timelineItems.length;j++){
 				//issue first came into in progress column	
