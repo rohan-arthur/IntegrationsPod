@@ -2,36 +2,6 @@ export default {
 	myVar1: [],
 	myVar2: {},
 
-	//in progress
-	getImpactBasedCycleTimes: async () => {
-		let cycleTimesByImpact = [];
-
-		//const impact = ["Critical", "High", "medium", "Low"]; 
-		const criticalIssuesData = await GetCriticalssues.run();
-		const highIssuesData = await GetHighIssues.run();
-		const mediumIssuesData = await GetMediumIssues.run();
-		const lowIssuesData = await GetLowIssues.run();
-		const masterData = [
-			{
-				"impact":"critical",
-				"issues":criticalIssuesData
-			},
-			{
-				"impact":"high",
-				"issues":highIssuesData
-			},
-			{
-				"impact":"medium",
-				"issues":mediumIssuesData
-			},
-			{
-				"impact":"low",
-				"issues":lowIssuesData
-			}
-		];
-
-		return masterData;
-	},
 
 	getStats: async () => {
 		let estimates = [0.2, 0.5, 1, 2, 3, 5, 8];
@@ -62,6 +32,7 @@ export default {
 		await storeValue('stats',stats);
 		//return stats;
 		return globalCycleTimes;
+		//return cycleTimesData;
 	},
 	doCalculations: async (numbers) => {
 		// calculate mean
@@ -90,7 +61,7 @@ export default {
 		for(var i=0; i<data.length; i++){
 			var timelineItems = data[i].timelineItems.nodes;
 			for(var j=0; j<timelineItems.length; j++){
-				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Data Integration Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
+				if(timelineItems[j].key==="issue.change_pipeline" && timelineItems[j].data.to_pipeline.name==="In Progress" && timelineItems[j].data.workspace.name==="Query & JS Pod" && new Date(data[i].closedAt)>=new Date(StartDate.selectedDate) && new Date(data[i].closedAt)<=new Date(EndDate.selectedDate)){
 					cycleTimes.push({
 						"number":data[i].number,
 						"startedAt":timelineItems[j].updatedAt,
